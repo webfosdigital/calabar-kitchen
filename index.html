@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +9,815 @@
     <meta property="og:description" content="Port Harcourt's premier home for authentic Cross River native delicacies: Afang soup, White soup (Afia Efere), Edikang Ikong, native pepper soups, and fresh swallows at 41 & 42 Ikwerre Road." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Pure Vanilla CSS3 Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Pure Vanilla JavaScript ES6+ -->
+    <script type="module" src="./js/script.js"></script>
   </head>
-  <body class="bg-[#FAF8F5] text-[#1E1B18] antialiased selection:bg-[#C85A17]/20 selection:text-[#B84A12]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body>
+    <!-- Top Navigation (3-Zone Top Bar Contract) -->
+    <header class="site-header">
+      <div class="container header-container">
+        
+        <!-- Zone 1: Wordmark in Display Face -->
+        <a href="#" class="brand-wordmark">
+          <span class="brand-title">Calabar Kitchen</span>
+          <span class="brand-subtext">Cross River Native Cuisine</span>
+        </a>
+
+        <!-- Zone 2: Navigation Links -->
+        <nav class="nav-links">
+          <a href="#menu" class="nav-link">Menu</a>
+          <a href="#daily-pots" class="nav-link">Today's Pots</a>
+          <a href="#heritage" class="nav-link">Heritage</a>
+          <a href="#reservation" class="nav-link">Reservation</a>
+          <a href="#location" class="nav-link">Find Us</a>
+        </nav>
+
+        <!-- Zone 3: Primary Action & Mobile Hamburger -->
+        <div class="header-actions">
+          <button class="btn-primary-cart" onclick="window.CalabarApp.openCart()" aria-label="View order bag">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Order <span style="display: none;" class="sm-inline">Online</span></span>
+            <span id="cart-counter-badge" class="cart-counter" style="display: none;">0</span>
+          </button>
+
+          <button class="hamburger-btn" onclick="window.CalabarApp.toggleMobileMenu()" aria-label="Toggle navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Navigation Sheet -->
+      <div id="mobile-nav-sheet" class="mobile-nav-sheet">
+        <div class="mobile-nav-links">
+          <a href="#menu" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Menu</a>
+          <a href="#daily-pots" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Today's Pots</a>
+          <a href="#heritage" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Heritage</a>
+          <a href="#reservation" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Reservation</a>
+          <a href="#location" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Find Us</a>
+          <div class="mobile-nav-actions">
+            <a href="#reservation" class="btn-mobile-book" onclick="window.CalabarApp.toggleMobileMenu(true)">Book a Table</a>
+            <a href="tel:09016607242" class="btn-mobile-call">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call 09016607242</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            
+            <!-- Left Editorial Copy -->
+            <div>
+              <h1 class="hero-headline">
+                The Soul of Authentic Cross River Cuisine in Port Harcourt
+              </h1>
+
+              <p class="hero-subtitle">
+                Experience traditional Afang cooked with hand-shredded wild ukazi leaves and river periwinkles, 
+                aromatic Afia Efere (White soup), rich Edikang Ikong, and our signature slow-simmered 404 native pepper soups. 
+                Simmered fresh daily on Ikwerre Road.
+              </p>
+
+              <div class="hero-actions">
+                <a href="#menu" class="btn-hero-primary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2v8"/><path d="M21 2v4a3 3 0 0 1-3 3"/><path d="M15 2v4a3 3 0 0 0 3 3"/><path d="M18 10v12"/><path d="M3 2v2a4 4 0 0 0 4 4v14"/><path d="M7 2v6"/></svg>
+                  <span>Explore Native Menu</span>
+                </a>
+
+                <a href="#reservation" class="btn-hero-secondary">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                  <span>Book a Table</span>
+                </a>
+
+                <a href="#daily-pots" class="btn-hero-text">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                  <span>Check Today's Simmering Pots</span>
+                </a>
+              </div>
+
+              <!-- 3 Authentic Pillars -->
+              <div class="hero-pillars">
+                <div>
+                  <p class="pillar-stat tabular-nums">100%</p>
+                  <p class="pillar-label">Native Cross River herbs & spices</p>
+                </div>
+                <div>
+                  <p class="pillar-stat tabular-nums">8:30 AM</p>
+                  <p class="pillar-label">Fresh morning pots daily</p>
+                </div>
+                <div>
+                  <p class="pillar-stat tabular-nums">River</p>
+                  <p class="pillar-label">Hand-cleaned native periwinkles</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Visual Anchor -->
+            <div>
+              <div class="hero-media-wrapper">
+                <img src="./assets/images/hero_calabar_kitchen_1794102728383.jpg" alt="Authentic Nigerian dining spread with Afang soup and pounded yam at Calabar Kitchen, Port Harcourt" class="hero-media-img">
+                <div class="hero-media-overlay">
+                  <span class="media-kicker">Signature Daily Spread</span>
+                  <p class="media-title">Royal Afang Soup with Steaming Pounded Yam</p>
+                  <p class="media-desc">Served daily with tender assorted meats, smoked catfish, and river periwinkle.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Daily Pots Section -->
+      <section id="daily-pots" class="daily-pots-section">
+        <div class="container">
+          <div style="max-width: 48rem; margin-bottom: 3rem;">
+            <div class="section-kicker">
+              <span>Kitchen Live Pot Status</span>
+              <span aria-hidden="true">·</span>
+              <span style="color: #6C6357;">Simmered Fresh Every Morning</span>
+            </div>
+            <h2 class="section-title">Today's Native Simmering Pots</h2>
+            <p class="section-desc">
+              In traditional Cross River dining, true flavor demands slow cooking in thick-bottomed pots. 
+              Check which native pots are hot on the stove right now, check portion availability, and lock in your order before they finish.
+            </p>
+          </div>
+
+          <div id="daily-pots-grid" class="pots-grid">
+            <!-- Dynamically populated by js/script.js -->
+          </div>
+
+          <div class="bulk-notice-bar">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+              <span>Need a custom bulk pot for your family, office lunch, or weekend gathering in Port Harcourt?</span>
+            </div>
+            <a href="https://wa.me/2349016607242?text=Hello%20Calabar%20Kitchen,%20I%20would%20like%20to%20enquire%20about%20ordering%20a%20family%20pot%20of%20soup." target="_blank" rel="noopener noreferrer" class="bulk-notice-link">
+              Chat with our Head Chef on WhatsApp &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Complete Menu Section -->
+      <section id="menu" class="menu-section">
+        <div class="container">
+          <div class="menu-header-row">
+            <div>
+              <div class="section-kicker">
+                <span>Authentic Recipes</span>
+                <span aria-hidden="true">·</span>
+                <span>Prepared Per Order</span>
+              </div>
+              <h2 class="section-title">Our Cross River Kitchen Menu</h2>
+              <p class="section-desc">
+                Cooked with unadulterated Cross River ingredients, traditional clay-pot techniques, and generous portions of native meats and river catches.
+              </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-box">
+              <input type="text" id="menu-search-input" class="search-input" placeholder="Search Afang, White soup, 404..." />
+              <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="categories-tabs">
+            <button class="cat-btn is-active" data-cat="all" onclick="window.CalabarApp.filterCategory('all')">Complete Menu</button>
+            <button class="cat-btn" data-cat="soups" onclick="window.CalabarApp.filterCategory('soups')">Native Soups</button>
+            <button class="cat-btn" data-cat="peppersoups" onclick="window.CalabarApp.filterCategory('peppersoups')">Pepper Soups ("404" & Meats)</button>
+            <button class="cat-btn" data-cat="swallows" onclick="window.CalabarApp.filterCategory('swallows')">Traditional Swallows</button>
+            <button class="cat-btn" data-cat="rice" onclick="window.CalabarApp.filterCategory('rice')">Rice & Specialties</button>
+            <button class="cat-btn" data-cat="drinks" onclick="window.CalabarApp.filterCategory('drinks')">Palm Wine & Native Drinks</button>
+          </div>
+
+          <!-- Dishes Grid -->
+          <div id="dishes-grid" class="dishes-grid">
+            <!-- Dynamically populated by js/script.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Heritage Section -->
+      <section id="heritage" class="heritage-section">
+        <div class="container">
+          <div style="max-width: 48rem; margin-bottom: 3.5rem;">
+            <div class="section-kicker" style="color: #D97434;">
+              <span>Ancestral Cross River Tradition</span>
+              <span aria-hidden="true" style="color: #6E645A;">·</span>
+              <span style="color: #B5ACA2;">Calabar Hospitality in Rivers State</span>
+            </div>
+            <h2 class="section-title" style="color: #fff; font-size: 2.25rem;">
+              Where Ancient Forest Harvests Meet Culinary Artistry
+            </h2>
+            <p class="section-desc" style="color: #C7BDB1; margin-top: 1rem;">
+              In Cross River culture, cooking is not merely preparing food; it is an intimate expression of respect, patience, and honor for guests. 
+              At Calabar Kitchen, we import our wild ukazi leaves, native uyayak pods, and aromatic peppers straight from Cross River soil directly to our kitchen at 41 & 42 Ikwerre Road.
+            </p>
+          </div>
+
+          <div class="heritage-grid">
+            <!-- Left 3 Stories -->
+            <div>
+              <div class="story-item">
+                <div class="story-title-row">
+                  <span class="story-number">01.</span>
+                  <h3 class="story-title">The Sacred Art of Afang</h3>
+                </div>
+                <p class="story-subtitle">Wild Forest Vine & River Harvest</p>
+                <p class="story-text">
+                  Afang is more than a dish; it is a celebration of Cross River rainforest abundance. The wild Ukazi vine is hand-shredded into hairline ribbons, pounded in a wooden mortar to release its deep earthy undertones, and cooked alongside lush waterleaf to create a glossy, nutritious tapestry crowned with river periwinkles.
+                </p>
+              </div>
+
+              <div class="story-item">
+                <div class="story-title-row">
+                  <span class="story-number">02.</span>
+                  <h3 class="story-title">Afia Efere: The Pounded Yam Blessing</h3>
+                </div>
+                <p class="story-subtitle">Aromatic White Soup Without Palm Oil</p>
+                <p class="story-text">
+                  Unlike other Nigerian soups, traditional White Soup completely eschews red palm oil. Instead, it derives its velvet body from boiled white yam mashed directly into the broth, accompanied by the sweet, woodsy fragrance of roasted uyayak pods and fragrant uziza seeds.
+                </p>
+              </div>
+
+              <div class="story-item">
+                <div class="story-title-row">
+                  <span class="story-number">03.</span>
+                  <h3 class="story-title">The Spice Council of Calabar Pepper Soup</h3>
+                </div>
+                <p class="story-subtitle">Medicinal Warming Broths</p>
+                <p class="story-text">
+                  Simmered with native alligator pepper, roasted calabash nutmeg, uda pods, and scent leaves, our pepper soups are traditional restorative broths made to invigorate the body and awaken the palate with honest, bold heat.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right Ambiance Media Box -->
+            <div>
+              <div class="heritage-media-box">
+                <img src="./assets/images/restaurant_ambiance_1794102730506.jpg" alt="Calabar Kitchen dining room atmosphere on Ikwerre Road Port Harcourt" class="heritage-img" />
+                <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;">
+                  <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; color: #D97434; margin-bottom: 4px;">The Calabar Kitchen Atmosphere</span>
+                  <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 500; color: #fff;">Warm Wood, Native Art, and Calabar Hospitality</p>
+                  <p style="font-size: 0.75rem; color: #D5CBC0; margin-top: 4px; max-width: 28rem;">
+                    Whether you are dropping by for a solo bowl of piping hot White soup during work or gathering your family for Sunday lunch, our doors at 41 & 42 Ikwerre Road are wide open.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 Cultural Botanical Pillars -->
+          <div class="heritage-pillars-row">
+            <div class="pillar-card">
+              <h4 class="pillar-card-title">Wild Ukazi (Afang)</h4>
+              <p class="pillar-card-desc">Harvested deep from rainforest vines, sliced to hair-thin perfection, and pounded to release rich forest chlorophyll.</p>
+            </div>
+            <div class="pillar-card">
+              <h4 class="pillar-card-title">Uyayak Pods</h4>
+              <p class="pillar-card-desc">Roasted over open flame before being simmered into White Soup, creating an unmistakable aromatic and therapeutic aroma.</p>
+            </div>
+            <div class="pillar-card">
+              <h4 class="pillar-card-title">River Periwinkles (Mfi)</h4>
+              <p class="pillar-card-desc">Fresh river periwinkles meticulously washed and deshelled, infusing sea-fresh sweetness into every spoonful of Afang.</p>
+            </div>
+            <div class="pillar-card">
+              <h4 class="pillar-card-title">Pure Dawn Palm Sap</h4>
+              <p class="pillar-card-desc">Naturally effervescent, chilled and served raw in calabash cups — the ultimate companion to spicy pepper soup.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reservation Section -->
+      <section id="reservation" class="reservation-section">
+        <div class="container">
+          <div class="reservation-grid">
+            
+            <!-- Left Info Column -->
+            <div>
+              <div class="section-kicker">
+                <span>Table & Event Booking</span>
+                <span aria-hidden="true">·</span>
+                <span>41 & 42 Ikwerre Road</span>
+              </div>
+              <h2 class="section-title">Reserve Your Table for an Unhurried Calabar Feast</h2>
+              <p class="section-desc">
+                Whether you are dining with colleagues over steaming pepper soup, hosting an executive lunch in Port Harcourt, or sharing a Sunday pot of Afang with family, reserving guarantees your table and freshly simmered portions.
+              </p>
+
+              <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 1rem; font-size: 0.875rem; color: #4A4136;">
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div>
+                    <p style="font-weight: 600; color: var(--text-main);">Operating Hours</p>
+                    <p style="font-size: 0.75rem; color: #6B6155;">Monday – Saturday: 8:30 AM – 10:00 PM</p>
+                    <p style="font-size: 0.75rem; color: #6B6155;">Sunday: 12:00 PM – 9:00 PM</p>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <div>
+                    <p style="font-weight: 600; color: var(--text-main);">Large Gatherings & VIP Bookings</p>
+                    <p style="font-size: 0.75rem; color: #6B6155;">
+                      For parties larger than 10 or private dining events, call our table manager directly at <a href="tel:09016607242" style="font-weight: 500; color: var(--accent-primary); text-decoration: underline;">+234 901 660 7242</a>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WhatsApp Booking Card -->
+              <div style="margin-top: 2rem; padding: 1rem; background-color: #F2EDE4; border-radius: 12px; border: 1px solid var(--border-card); display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+                <div>
+                  <p style="font-size: 0.75rem; font-weight: 600; color: var(--text-main);">Prefer booking via WhatsApp?</p>
+                  <p style="font-size: 11px; color: #6B6155;">Instant response from our front desk</p>
+                </div>
+                <a href="https://wa.me/2349016607242?text=Hello%20Calabar%20Kitchen,%20I%20would%20like%20to%20reserve%20a%20table%20today." target="_blank" rel="noopener noreferrer" style="padding: 0.5rem 0.875rem; background-color: var(--green-badge); color: #fff; font-size: 0.75rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  <span>WhatsApp Desk</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Interactive Form Card -->
+            <div>
+              <div id="reservation-card-container" class="reservation-form-card">
+                <form id="table-reservation-form" onsubmit="window.CalabarApp.handleReservationSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                  <div style="padding-bottom: 0.75rem; border-bottom: 1px solid #ECE6DB;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Online Table Reservation Form</h3>
+                    <p style="font-size: 0.75rem; color: #7A7064; margin-top: 2px;">No prepayment required. Confirmation sent instantly.</p>
+                  </div>
+
+                  <!-- Name and Phone -->
+                  <div class="form-group-row-2">
+                    <div>
+                      <label class="form-label">Full Name *</label>
+                      <input type="text" id="res-guest-name" required placeholder="e.g. Chief Bassey Okon" class="form-input" />
+                    </div>
+                    <div>
+                      <label class="form-label">Phone Number *</label>
+                      <input type="tel" id="res-phone" required placeholder="e.g. 09016607242" class="form-input" />
+                    </div>
+                  </div>
+
+                  <!-- Date, Time, Guests -->
+                  <div class="form-group-row-3">
+                    <div>
+                      <label class="form-label">Date *</label>
+                      <input type="date" id="res-date" required class="form-input" />
+                    </div>
+                    <div>
+                      <label class="form-label">Preferred Time *</label>
+                      <select id="res-time" class="form-input">
+                        <option value="11:30 AM">11:30 AM</option>
+                        <option value="12:00 PM">12:00 PM</option>
+                        <option value="12:30 PM">12:30 PM</option>
+                        <option value="01:00 PM" selected>01:00 PM</option>
+                        <option value="01:30 PM">01:30 PM</option>
+                        <option value="02:00 PM">02:00 PM</option>
+                        <option value="03:00 PM">03:00 PM</option>
+                        <option value="05:00 PM">05:00 PM</option>
+                        <option value="06:00 PM">06:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="08:00 PM">08:00 PM</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="form-label">Number of Guests *</label>
+                      <select id="res-guests" class="form-input">
+                        <option value="1">1 Guest</option>
+                        <option value="2" selected>2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                        <option value="6">6 Guests</option>
+                        <option value="8">8 Guests</option>
+                        <option value="10">10 Guests</option>
+                        <option value="12">12 Guests</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Seating Section -->
+                  <div>
+                    <label class="form-label">Preferred Seating Section</label>
+                    <div class="seating-zones-grid">
+                      <button type="button" class="zone-selector-btn is-selected" data-zone="Main Dining Room" onclick="window.CalabarApp.selectResZone('Main Dining Room')">
+                        Main Dining Room
+                      </button>
+                      <button type="button" class="zone-selector-btn" data-zone="Outdoor Cultural Terrace" onclick="window.CalabarApp.selectResZone('Outdoor Cultural Terrace')">
+                        Outdoor Cultural Terrace
+                      </button>
+                      <button type="button" class="zone-selector-btn" data-zone="Private VIP Lounge" onclick="window.CalabarApp.selectResZone('Private VIP Lounge')">
+                        Private VIP Lounge
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Special Notes -->
+                  <div>
+                    <label class="form-label">Special Dietary Notes or Pre-Ordered Pots (Optional)</label>
+                    <textarea id="res-notes" rows="2" placeholder="e.g. Please reserve 2 bowls of White Soup with extra goat meat; celebrate a birthday." class="form-input"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn-form-submit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                    <span>Confirm Reservation</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="testimonials-section">
+        <div class="container">
+          <div style="max-width: 42rem; margin-bottom: 3rem;">
+            <div class="section-kicker">
+              <span>Diner Experiences</span>
+              <span aria-hidden="true">·</span>
+              <span>Voices from Port Harcourt</span>
+            </div>
+            <h2 class="section-title">Loved by Calabar Natives & Food Explorers Alike</h2>
+            <p class="section-desc">
+              From residents living in Old GRA and D-Line to oil professionals working in Trans-Amadi, our diners return for one reason: genuine, uncompromised native Cross River flavors.
+            </p>
+          </div>
+
+          <div class="testimonials-grid">
+            <!-- Review 1 -->
+            <article class="testimonial-card">
+              <div>
+                <div class="stars-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                  &ldquo;Having lived in Calabar for 20 years before moving to Port Harcourt, I was skeptical about finding genuine Afang. Calabar Kitchen on Ikwerre Road uses authentic ukazi cut to the exact precision, real periwinkles, and unadulterated palm oil. It is home away from home.&rdquo;
+                </p>
+              </div>
+              <div style="border-top: 1px solid #F0EBE2; padding-top: 1rem;">
+                <p class="author-name">Chief E. Okon</p>
+                <p class="author-location">GRA Phase 2, Port Harcourt</p>
+                <p class="author-fav">Favorite Dish: Royal Afang Soup with Pounded Yam</p>
+              </div>
+            </article>
+
+            <!-- Review 2 -->
+            <article class="testimonial-card">
+              <div>
+                <div class="stars-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                  &ldquo;The Cow Head and Tail Pepper soup here cures any stress after a long workday in Trans-Amadi. Piping hot, balanced spices, and real utazi leaves. Their dispatch rider brought it to my door in 35 minutes.&rdquo;
+                </p>
+              </div>
+              <div style="border-top: 1px solid #F0EBE2; padding-top: 1rem;">
+                <p class="author-name">Amaka Nwachukwu</p>
+                <p class="author-location">D-Line, Port Harcourt</p>
+                <p class="author-fav">Favorite Dish: Cow Head & Tail Pepper Soup</p>
+              </div>
+            </article>
+
+            <!-- Review 3 -->
+            <article class="testimonial-card">
+              <div>
+                <div class="stars-row">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <p class="testimonial-text">
+                  &ldquo;Their Afia Efere (White Soup) is second to none in Rivers State. The aroma of uyayak as you enter 41 Ikwerre Road welcomes you immediately. Excellent hospitality and spotless restaurant cleanliness.&rdquo;
+                </p>
+              </div>
+              <div style="border-top: 1px solid #F0EBE2; padding-top: 1rem;">
+                <p class="author-name">Dr. Tari Harry</p>
+                <p class="author-location">Peter Odili Road, Port Harcourt</p>
+                <p class="author-fav">Favorite Dish: Calabar White Soup with Goat Meat</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Contact Section -->
+      <section id="location" class="location-section">
+        <div class="container">
+          <div style="max-width: 48rem; margin-bottom: 3rem;">
+            <div class="section-kicker">
+              <span>Find Us in Port Harcourt</span>
+              <span aria-hidden="true">·</span>
+              <span>Reach Our Kitchen Team</span>
+            </div>
+            <h2 class="section-title">Visit 41 & 42 Ikwerre Road or Send an Enquiry</h2>
+            <p class="section-desc">
+              Conveniently situated along the vibrant Ikwerre Road corridor, accessible from Mile 3, GRA, D-Line, and Olu Obasanjo road. 
+              Drop in for a hearty dine-in meal, pick up hot takeout pots, or speak to our catering and reservations team.
+            </p>
+          </div>
+
+          <div class="location-grid">
+            <!-- Left Info Cards -->
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              
+              <!-- Address Card -->
+              <div class="contact-card">
+                <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem;">
+                  <div style="padding: 0.5rem; border-radius: 8px; background-color: var(--bg-pill); color: var(--accent-primary); flex-shrink: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600;">Restaurant Location</h3>
+                    <p style="font-size: 0.875rem; font-weight: 500; margin-top: 2px;">41 & 42 Ikwerre Road, Port Harcourt, Rivers State, Nigeria</p>
+                    <p style="font-size: 0.75rem; color: #7A7064; margin-top: 6px; line-height: 1.5;">
+                      Easy parking available. Landmarks: Easily accessible between Mile 3 Market junction and Education Bus Stop on Ikwerre Road.
+                    </p>
+                  </div>
+                </div>
+
+                <div style="padding-top: 1rem; border-top: 1px solid #F0EBE2; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                  <a href="https://maps.google.com/?q=41+Ikwerre+Road+Port+Harcourt" target="_blank" rel="noopener noreferrer" style="padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 600; background-color: var(--text-main); color: #fff; border-radius: 8px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+                    <span>Open in Google Maps</span>
+                  </a>
+                  <a href="tel:09016607242" style="padding: 0.5rem 1rem; font-size: 0.75rem; font-weight: 600; border: 1px solid #D5CDC0; color: #3A322A; border-radius: 8px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Call 09016607242</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Direct Channels -->
+              <div class="contact-card">
+                <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">Direct Contact Channels</h3>
+
+                <div class="contact-channel-item">
+                  <svg class="contact-channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <div class="contact-channel-text">
+                    <span class="contact-channel-label">Call / Text Orders:</span>
+                    <a href="tel:09016607242" class="contact-channel-value">+234 901 660 7242</a>
+                  </div>
+                </div>
+
+                <div class="contact-channel-item">
+                  <svg class="contact-channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                  <div class="contact-channel-text">
+                    <span class="contact-channel-label">Official Email:</span>
+                    <a href="mailto:calabarkitchen482@gmail.com" class="contact-channel-value">calabarkitchen482@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-channel-item">
+                  <svg class="contact-channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <div class="contact-channel-text">
+                    <span class="contact-channel-label">Kitchen Service Hours:</span>
+                    <span class="contact-channel-value">Monday – Saturday: 8:30 AM – 10:00 PM</span>
+                    <span style="display: block; font-size: 0.75rem; color: #5C5348;">Sunday: 12:00 PM – 9:00 PM</span>
+                  </div>
+                </div>
+
+                <div style="padding-top: 0.75rem; border-top: 1px solid #F0EBE2;">
+                  <a href="https://wa.me/2349016607242?text=Hello%20Calabar%20Kitchen,%20I%20have%20an%20enquiry." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-desk">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <span>Chat With Front Desk on WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Interactive Form -->
+            <div>
+              <div id="contact-form-container" class="contact-card" style="padding: 2rem;">
+                <form id="general-enquiry-form" onsubmit="window.CalabarApp.handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
+                  <div style="padding-bottom: 0.75rem; border-bottom: 1px solid #ECE6DB;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Send an Enquiry or Pot Request</h3>
+                    <p style="font-size: 0.75rem; color: #7A7064; margin-top: 2px;">Need custom party pots, event catering, or have feedback? Let us know.</p>
+                  </div>
+
+                  <div class="form-group-row-2">
+                    <div>
+                      <label class="form-label">Your Name *</label>
+                      <input type="text" id="contact-name" required placeholder="e.g. Boma George" class="form-input" />
+                    </div>
+                    <div>
+                      <label class="form-label">Phone Number *</label>
+                      <input type="tel" id="contact-phone" required placeholder="e.g. 09016607242" class="form-input" />
+                    </div>
+                  </div>
+
+                  <div class="form-group-row-2">
+                    <div>
+                      <label class="form-label">Email Address (Optional)</label>
+                      <input type="email" id="contact-email" placeholder="e.g. yourname@gmail.com" class="form-input" />
+                    </div>
+                    <div>
+                      <label class="form-label">Inquiry Topic *</label>
+                      <select id="contact-subject" class="form-input">
+                        <option value="Soup Pot Availability & Enquiries">Soup Pot Availability Check</option>
+                        <option value="Bulk Family / Office Food Order">Bulk Family / Office Food Order</option>
+                        <option value="Event Catering in Port Harcourt">Event Catering in Port Harcourt</option>
+                        <option value="General Dining Question">General Dining Question</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="form-label">Your Message *</label>
+                    <textarea id="contact-msg" required rows="4" placeholder="Please let us know how we can assist you..." class="form-input"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn-form-submit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    <span>Submit Message</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Requirement #130 Dynamic Year & #131 Full Content) -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          
+          <!-- Col 1: Brand -->
+          <div>
+            <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: #fff; display: block; margin-bottom: 4px;">Calabar Kitchen</span>
+            <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-warm); font-weight: 600; margin-bottom: 0.75rem;">Cross River Native Delicacies</p>
+            <p style="font-size: 0.75rem; color: #A89E92; line-height: 1.6; margin-bottom: 1rem;">
+              Authentic native Afang, White soup (Afia Efere), Edikang Ikong, 404 pepper soup, and traditional swallows cooked with deep respect for ancestral Nigerian culinary craft.
+            </p>
+            <div style="font-size: 0.75rem; display: flex; align-items: center; gap: 8px;">
+              <span style="color: #8A8073;">Social:</span>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style="color: #B8ADA1;">Instagram</a>
+              <span style="color: #5A5146;">·</span>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style="color: #B8ADA1;">Facebook</a>
+              <span style="color: #5A5146;">·</span>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" style="color: #B8ADA1;">TikTok</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigation Links -->
+          <div>
+            <h4 class="footer-heading">Explore Our Kitchen</h4>
+            <ul class="footer-list">
+              <li><a href="#menu">Traditional Native Menu</a></li>
+              <li><a href="#daily-pots">Today's Simmering Pot Status</a></li>
+              <li><a href="#heritage">Cross River Cultural Heritage</a></li>
+              <li><a href="#reservation">Table Reservation & Booking</a></li>
+              <li><a href="#location">Find Us on Ikwerre Road</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Native Specialties -->
+          <div>
+            <h4 class="footer-heading">Native Specialties</h4>
+            <ul class="footer-list">
+              <li>Royal Afang Soup with Periwinkles</li>
+              <li>Calabar White Soup (Afia Efere)</li>
+              <li>Edikang Ikong Royale</li>
+              <li>Special 404 Native Pepper Soup</li>
+              <li>Cow Head & Tail Pepper Soup</li>
+              <li>Fresh Pounded Yam & Eba</li>
+              <li>Tapped Sweet Palm Wine</li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Location Info -->
+          <div>
+            <h4 class="footer-heading">Port Harcourt Kitchen</h4>
+            <ul class="footer-list" style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <li style="display: flex; gap: 8px; align-items: flex-start;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>41 & 42 Ikwerre Road, Port Harcourt, Rivers State</span>
+              </li>
+              <li style="display: flex; gap: 8px; align-items: center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2" style="flex-shrink: 0;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:09016607242">+234 901 660 7242</a>
+              </li>
+              <li style="display: flex; gap: 8px; align-items: center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2" style="flex-shrink: 0;"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:calabarkitchen482@gmail.com">calabarkitchen482@gmail.com</a>
+              </li>
+              <li style="display: flex; gap: 8px; align-items: flex-start; margin-top: 4px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C85A17" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div>
+                  <span>Mon – Sat: 8:30 AM – 10:00 PM</span>
+                  <span style="display: block; color: #8A8073;">Sunday: 12:00 PM – 9:00 PM</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Copyright Row -->
+        <div class="footer-bottom-bar">
+          <p>
+            &copy; <span id="copyright-year">2026</span> Calabar Kitchen. All rights reserved.
+          </p>
+
+          <div class="footer-legal-links">
+            <button class="footer-legal-btn" onclick="window.CalabarApp.openLegalModal('privacy')">Privacy Policy</button>
+            <span aria-hidden="true">·</span>
+            <button class="footer-legal-btn" onclick="window.CalabarApp.openLegalModal('terms')">Terms of Service</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- SLIDE-OVER CART DRAWER -->
+    <div id="drawer-overlay" class="drawer-overlay" onclick="if (event.target === this) window.CalabarApp.closeCart();">
+      <div class="drawer-container">
+        <div class="drawer-header">
+          <h2 class="drawer-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            <span>Your Order Bag</span>
+          </h2>
+          <button onclick="window.CalabarApp.closeCart()" style="padding: 6px; border-radius: 8px; color: #6C6357;" aria-label="Close cart">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div id="drawer-body-content" class="drawer-body">
+          <!-- Dynamically populated by js/script.js -->
+        </div>
+
+        <div id="drawer-footer-content" class="drawer-footer">
+          <!-- Dynamically populated by js/script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- DISH DETAILS MODAL -->
+    <div id="dish-modal-overlay" class="modal-overlay" onclick="if (event.target === this) window.CalabarApp.closeDishModal();">
+      <div class="modal-card">
+        <button class="modal-close-btn" onclick="window.CalabarApp.closeDishModal()" aria-label="Close dialog">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div id="dish-modal-content">
+          <!-- Dynamically populated by js/script.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGAL MODAL (PRIVACY & TERMS) -->
+    <div id="legal-modal-overlay" class="modal-overlay" onclick="if (event.target === this) window.CalabarApp.closeLegalModal();">
+      <div class="modal-card" style="padding: 1.5rem; max-width: 36rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid #ECE6DB; margin-bottom: 1rem;">
+          <h3 id="legal-modal-title" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Legal Information</h3>
+          <button onclick="window.CalabarApp.closeLegalModal()" style="padding: 4px; border-radius: 8px; color: #6C6357;" aria-label="Close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div id="legal-modal-body" style="font-size: 0.75rem; color: #5C5348; line-height: 1.6; max-height: 60vh; overflow-y: auto;">
+          <!-- Dynamically populated by js/script.js -->
+        </div>
+        <div style="padding-top: 1rem; border-top: 1px solid #ECE6DB; display: flex; justify-content: flex-end; margin-top: 1rem;">
+          <button onclick="window.CalabarApp.closeLegalModal()" style="padding: 0.5rem 1rem; background-color: var(--text-main); color: #fff; font-size: 0.75rem; font-weight: 600; border-radius: 8px;">
+            I Understand
+          </button>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
-
