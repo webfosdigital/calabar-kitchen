@@ -1,0 +1,6 @@
+{
+  "name": "Calabar Kitchen - Authentic Cross River Cuisine",
+  "description": "Port Harcourt's home for authentic Cross River native delicacies: Afang soup, White soup, Edikang Ikong, native pepper soups, fresh swallows, and reservations at 41 & 42 Ikwerre Road.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
