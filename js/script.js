@@ -74,7 +74,7 @@
       ingredients: ['Fluted Pumpkin (Ugwu)', 'Waterleaf', 'Tender Beef Chunks', 'Seasoned Kpomo', 'Deboned Dry Fish', 'Periwinkles', 'Crayfish'],
       spiceLevel: 'Mild',
       isChefSpecial: true,
-      image: './assets/images/dish_afang_soup_1794102728482.jpg',
+      image: './assets/images/dish_edikang_ikong_1794194343523.jpg',
       recommendedSwallow: 'Yellow Garri (Eba) or Semovita',
       availableToday: true,
       potStatus: 'Ready to Serve',
@@ -130,7 +130,7 @@
       description: 'Hearty, gelatinous cuts of slow-braised cow tail and tender cow head in an invigorating, piping hot herbal native broth with fresh utazi and habanero chilies.',
       ingredients: ['Braised Cow Tail', 'Cow Head Cuts', 'Calabash Nutmeg', 'Utazi Leaves', 'Native Herbal Infusion', 'Crushed Chili'],
       spiceLevel: 'Hot',
-      image: './assets/images/dish_pepper_soup_1794102730377.jpg',
+      image: './assets/images/dish_cow_head_tail_1794196879407.jpg',
       availableToday: true,
       potStatus: 'Ready to Serve',
     },
@@ -143,7 +143,7 @@
       description: 'Generous medley of tender shaki (tripe), liver, kidney, and soft beef cuts in a steaming aromatic herbal pepper broth that restores energy and warms the soul.',
       ingredients: ['Beef Tripe (Shaki)', 'Liver & Kidney', 'Tender Beef', 'Aromatic Native Spices', 'Scent Leaves'],
       spiceLevel: 'Hot',
-      image: './assets/images/dish_pepper_soup_1794102730377.jpg',
+      image: './assets/images/dish_assorted_meat_1794196880883.jpg',
       availableToday: true,
       potStatus: 'Ready to Serve',
     },
@@ -156,7 +156,7 @@
       description: 'Smooth, stretchy, and lump-free authentic pounded yam prepared freshly per order from premium Rivers and Benue white yams.',
       ingredients: ['100% Premium White Yam'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_white_soup_1794102729231.jpg',
+      image: './assets/images/dish_pounded_yam_1794196895734.jpg',
       availableToday: true,
     },
     {
@@ -165,10 +165,10 @@
       nativeName: 'Bendel / Calabar Eba',
       category: 'swallows',
       price: 700,
-      description: 'Finely processed palm-oil fermented cassava flour turned with boiling water into a firm, satisfying traditional swallow.',
+      description: 'Finely processed palm-oil fermented cassava flour turned with boiling water into a firm, satisfying traditional swallow in a plate.',
       ingredients: ['Yellow Cassava Garri', 'Hot Filtered Water'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_afang_soup_1794102728482.jpg',
+      image: './assets/images/dish_yellow_garri_1794196895648.jpg',
       availableToday: true,
     },
     {
@@ -180,7 +180,7 @@
       description: 'Light, golden, perfectly whisked semolina swallow with velvety consistency.',
       ingredients: ['Premium Milled Semolina'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_white_soup_1794102729231.jpg',
+      image: './assets/images/dish_pounded_yam_1794196895734.jpg',
       availableToday: true,
     },
     {
@@ -192,7 +192,7 @@
       description: 'Silky, traditionally fermented cassava fufu with distinct pleasant aroma, ideal for soaking up rich Afang and Editan soups.',
       ingredients: ['Fermented Wet Cassava Paste'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_afang_soup_1794102728482.jpg',
+      image: './assets/images/dish_pounded_yam_1794196895734.jpg',
       availableToday: true,
     },
     {
@@ -205,7 +205,7 @@
       ingredients: ['Long Grain Rice', 'Fire Roasted Pepper Medley', 'Spiced Peppered Chicken', 'Fried Sweet Plantain (Dodo)', 'Secret Calabar Spices'],
       spiceLevel: 'Medium',
       isChefSpecial: true,
-      image: './assets/images/hero_calabar_kitchen_1794102728383.jpg',
+      image: './assets/images/dish_party_jollof_1794194344303.jpg',
       availableToday: true,
       potStatus: 'Ready to Serve',
     },
@@ -218,7 +218,7 @@
       description: 'Fragrant rice cooked gently in freshly pressed rich coconut milk, smoked bonga fish, ground river crayfish, and dry pepper. Topped with peppered smoked fish.',
       ingredients: ['Pure Fresh Coconut Milk', 'Smoked Fish Chunks', 'Crayfish', 'Scotch Bonnet', 'Tender Seasoned Beef'],
       spiceLevel: 'Medium',
-      image: './assets/images/hero_calabar_kitchen_1794102728383.jpg',
+      image: './assets/images/dish_party_jollof_1794194344303.jpg',
       availableToday: true,
       potStatus: 'Ready to Serve',
     },
@@ -231,7 +231,7 @@
       description: 'Naturally sweet, unadulterated palm sap tapped at dawn from oil palm trees in Cross River groves. Served chilled in a traditional calabash cup.',
       ingredients: ['100% Pure Natural Palm Sap'],
       spiceLevel: 'Mild',
-      image: './assets/images/restaurant_ambiance_1794102730506.jpg',
+      image: './assets/images/drink_palm_wine_1794194344210.jpg',
       availableToday: true,
     },
     {
@@ -243,7 +243,7 @@
       description: 'Refreshing cold brew of natural roselle hibiscus petals steeped with pressed ginger, cloves, and pineapple peel for natural sweetness.',
       ingredients: ['Hibiscus Sepals', 'Fresh Ginger', 'Cloves (Kanunfari)', 'Pineapple Essence'],
       spiceLevel: 'Mild',
-      image: './assets/images/restaurant_ambiance_1794102730506.jpg',
+      image: './assets/images/drink_palm_wine_1794194344210.jpg',
       availableToday: true,
     },
   ];
@@ -302,7 +302,7 @@
             </div>
 
             <div class="pot-body">
-              <div class="pot-thumb-box">
+              <div class="pot-thumb-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
                 <img src="${dish.image}" alt="${dish.name}" class="pot-thumb" loading="lazy">
               </div>
               <div>
@@ -334,33 +334,14 @@
     if (!container) return;
 
     const filtered = MENU_ITEMS.filter((item) => {
-      const matchCat = activeCategory === 'all' || item.category === activeCategory;
-      const q = searchQuery.toLowerCase().trim();
-      const matchSearch =
-        !q ||
-        item.name.toLowerCase().includes(q) ||
-        (item.nativeName && item.nativeName.toLowerCase().includes(q)) ||
-        item.description.toLowerCase().includes(q) ||
-        item.ingredients.some((ing) => ing.toLowerCase().includes(q));
-      return matchCat && matchSearch;
+      return activeCategory === 'all' || item.category === activeCategory;
     });
-
-    if (filtered.length === 0) {
-      container.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; background-color: #F4EFE6; border-radius: 12px; border: 1px dashed #D5CDC0;">
-          <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">No dishes found matching "${escapeHtml(searchQuery)}"</p>
-          <p style="font-size: 0.875rem; color: #6C6255; margin-top: 0.5rem;">Try searching for Afang, White soup, 404 pepper soup, or pounded yam.</p>
-          <button onclick="window.CalabarApp.resetMenuFilter()" style="margin-top: 1rem; padding: 0.5rem 1rem; background-color: var(--accent-primary); color: #fff; font-size: 0.75rem; font-weight: 600; border-radius: 8px;">Reset Search & Filter</button>
-        </div>
-      `;
-      return;
-    }
 
     container.innerHTML = filtered.map((dish) => {
       return `
         <article class="dish-card">
           <div>
-            <div class="dish-card-image-box">
+            <div class="dish-card-image-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
               <img src="${dish.image}" alt="${dish.name}" class="dish-card-img" loading="lazy">
               ${dish.isChefSpecial ? `<span class="dish-special-tag">Chef's Native Signature</span>` : ''}
               <span class="dish-spice-tag">
@@ -428,8 +409,8 @@
           <div style="width: 4rem; height: 4rem; background-color: rgba(34, 103, 59, 0.1); color: #22673B; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Order Received!</h3>
-          <p style="font-size: 0.875rem; color: #5C5348; margin-bottom: 1.5rem;">Our kitchen at 41 & 42 Ikwerre Road is preparing your meal.</p>
+          <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Order Request Prepared</h3>
+          <p style="font-size: 0.875rem; color: #5C5348; margin-bottom: 1.5rem;">Your order details are ready. Please send them via WhatsApp to confirm preparation and dispatch timing.</p>
           
           <div style="background-color: #FFFFFF; border-radius: 12px; border: 1px solid #DFD7CB; padding: 1rem; text-align: left; margin-bottom: 1.5rem; font-size: 0.875rem;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
@@ -437,25 +418,33 @@
               <span style="font-family: monospace; font-weight: bold; color: var(--accent-primary);">${lastCompletedOrder.orderId}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+              <span style="color: #6B6155;">Customer Name</span>
+              <span style="font-weight: 500;">${escapeHtml(lastCompletedOrder.customerName || 'Customer')}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
               <span style="color: #6B6155;">Total Amount</span>
               <span style="font-weight: bold;" class="tabular-nums">₦${lastCompletedOrder.total.toLocaleString()}</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
-              <span style="color: #6B6155;">Delivery Method</span>
-              <span style="text-transform: capitalize; font-weight: 500;">${lastCompletedOrder.deliveryType}</span>
+              <span style="color: #6B6155;">Fulfillment</span>
+              <span style="text-transform: capitalize; font-weight: 500;">${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 Ikwerre Road'}</span>
             </div>
             <p style="font-size: 0.75rem; color: #7A7064; border-top: 1px solid #ECE6DB; padding-top: 0.5rem; margin-top: 0.5rem;">
-              Payment can be settled via Cash on Delivery or Direct Bank Transfer upon food arrival.
+              Payment is settled upon delivery or pickup via Cash or Direct Bank Transfer.
             </p>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <button onclick="window.CalabarApp.dispatchWhatsAppFromCompleted()" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem;">
+            <button onclick="window.CalabarApp.dispatchWhatsAppFromCompleted()" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>Track / Confirm via WhatsApp</span>
+              <span>Send Order via WhatsApp to Confirm</span>
             </button>
-            <button onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid #DFD7CB; color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px;">
-              Done
+            <a href="tel:09016607242" style="width: 100%; padding: 0.625rem; border: 1px solid #D5CDC0; color: #3A322A; font-size: 0.75rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>Call Kitchen Directly: 09016607242</span>
+            </a>
+            <button onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid #DFD7CB; color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+              Done / Close Bag
             </button>
           </div>
         </div>
@@ -491,7 +480,7 @@
     bodyEl.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #7A7064; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 1rem;">
         <span>Selected Items (${cart.length})</span>
-        <button onclick="window.CalabarApp.clearCart()" style="color: #b91c1c; font-size: 11px;">Clear All</button>
+        <button onclick="window.CalabarApp.clearCart()" style="color: #b91c1c; font-size: 12px; font-weight: 500;">Clear All</button>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
@@ -570,7 +559,7 @@
           <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5A5044;">
             <p style="font-weight: 600; color: #1E1B18; margin-bottom: 2px;">Pickup Location:</p>
             <p>Calabar Kitchen, 41 & 42 Ikwerre Road, Port Harcourt.</p>
-            <p style="font-size: 11px; color: #7A7064; margin-top: 4px;">Ready within 25–30 minutes after order placement.</p>
+            <p style="font-size: 12px; color: #5C5348; margin-top: 4px;">Ready within 25–30 minutes after order placement.</p>
           </div>
         `}
 
@@ -629,7 +618,7 @@
     const swallowOptions = ['Pounded Yam', 'Yellow Garri (Eba)', 'Semovita', 'Calabar Fufu (Akpu)', 'No Swallow'];
 
     content.innerHTML = `
-      <div style="position: relative; height: 14rem; background-color: var(--bg-alt); flex-shrink: 0;">
+      <div style="position: relative; height: 14rem; background-color: var(--bg-alt); flex-shrink: 0; cursor: pointer;" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click for full photo view">
         <img src="${dish.image}" alt="${dish.name}" style="width: 100%; height: 100%; object-fit: cover;">
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 1.5rem;">
           <div>
@@ -687,11 +676,15 @@
           </div>
         ` : ''}
 
-        <div style="padding-top: 0.75rem; border-top: 1px solid #F0EBE2;">
+        <div style="padding-top: 0.75rem; border-top: 1px solid #F0EBE2; display: flex; flex-direction: column; gap: 0.5rem;">
           <button id="modal-add-btn" onclick="window.CalabarApp.addFromModal()" style="width: 100%; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; border-radius: 8px; background-color: var(--accent-primary); color: #fff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: var(--shadow-sm); cursor: pointer;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             <span>Add to Order — ₦${dish.price.toLocaleString()}</span>
           </button>
+          <a href="https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${encodeURIComponent("Hello Calabar Kitchen, I would like to enquire about ordering " + dish.name + " (₦" + dish.price.toLocaleString() + "). Is it currently available?")}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.625rem; font-size: 0.8125rem; font-weight: 600; border-radius: 8px; background-color: var(--green-badge); color: #fff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; cursor: pointer;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>Enquire About This Dish via WhatsApp</span>
+          </a>
         </div>
       </div>
     `;
@@ -777,6 +770,60 @@
     const overlay = document.getElementById('legal-modal-overlay');
     if (overlay) overlay.classList.remove('is-open');
     document.body.style.overflow = '';
+  }
+
+  // 4B. IMAGE LIGHTBOX FULL VIEW
+  function openImageLightbox(src, title, desc) {
+    const overlay = document.getElementById('image-lightbox-overlay');
+    const imgEl = document.getElementById('lightbox-img');
+    const titleEl = document.getElementById('lightbox-title');
+    const descEl = document.getElementById('lightbox-desc');
+    if (!overlay || !imgEl) return;
+
+    imgEl.src = src;
+    imgEl.alt = title || 'Dish Photo';
+    if (titleEl) titleEl.textContent = title || 'Calabar Kitchen Native Dish';
+    if (descEl) descEl.textContent = desc || 'Prepared daily at 41 & 42 Ikwerre Road, Port Harcourt.';
+
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageLightbox(e) {
+    if (e && e.target && e.target.closest('.lightbox-dialog') && !e.target.closest('.lightbox-close-btn')) {
+      return;
+    }
+    const overlay = document.getElementById('image-lightbox-overlay');
+    if (overlay) overlay.classList.remove('is-open');
+
+    // Only restore body scrolling if another modal isn't open
+    const modalDish = document.getElementById('dish-modal-overlay');
+    const modalLegal = document.getElementById('legal-modal-overlay');
+    const drawerCart = document.getElementById('drawer-overlay');
+    const isOtherOpen = (modalDish && modalDish.classList.contains('is-open')) ||
+                        (modalLegal && modalLegal.classList.contains('is-open')) ||
+                        (drawerCart && drawerCart.classList.contains('is-open'));
+    if (!isOtherOpen) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  // 4C. BACK TO TOP
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
+  function handleScroll() {
+    const btn = document.getElementById('back-to-top-btn');
+    if (!btn) return;
+    if (window.scrollY > 350) {
+      btn.classList.add('is-visible');
+    } else {
+      btn.classList.remove('is-visible');
+    }
   }
 
   // 5. CART OPERATIONS
@@ -991,58 +1038,120 @@
   function handleReservationSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const name = form.querySelector('#res-guest-name').value;
-    const phone = form.querySelector('#res-phone').value;
-    const date = form.querySelector('#res-date').value;
-    const time = form.querySelector('#res-time').value;
-    const guests = form.querySelector('#res-guests').value;
-    const notes = form.querySelector('#res-notes').value;
+    const nameEl = form.querySelector('#res-guest-name');
+    const phoneEl = form.querySelector('#res-phone');
+    const dateEl = form.querySelector('#res-date');
+    const timeEl = form.querySelector('#res-time');
+    const guestsEl = form.querySelector('#res-guests');
+    const notesEl = form.querySelector('#res-notes');
 
-    const code = `CK-${Math.floor(1000 + Math.random() * 9000)}`;
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const date = dateEl ? dateEl.value.trim() : '';
+    const time = timeEl ? timeEl.value.trim() : '';
+    const guests = guestsEl ? guestsEl.value.trim() : '2';
+    const notes = notesEl ? notesEl.value.trim() : '';
+
+    // Field Validation
+    if (!name || name.length < 2) {
+      if (nameEl) nameEl.focus();
+      return;
+    }
+    if (!phone || phone.length < 8) {
+      if (phoneEl) phoneEl.focus();
+      return;
+    }
+    if (!date) {
+      if (dateEl) dateEl.focus();
+      return;
+    }
+
+    const code = `CK-RES-${Math.floor(1000 + Math.random() * 9000)}`;
     lastReservationCode = code;
     lastReservationData = { name, phone, date, time, guests, zone: selectedResZone, notes };
+
+    // Formatted WhatsApp message for reservation request
+    const whatsappMsg = encodeURIComponent(
+      `Hello Calabar Kitchen, I would like to submit a table reservation request!\n\n` +
+      `Reservation Ref: ${code}\n` +
+      `Customer Name: ${name}\n` +
+      `Phone Number: ${phone}\n` +
+      `Requested Date: ${date}\n` +
+      `Requested Time: ${time}\n` +
+      `Number of Guests: ${guests} Guests\n` +
+      `Seating Area: ${selectedResZone}\n` +
+      (notes ? `Special Notes: ${notes}\n` : '') +
+      `\nPlease let me know if this table can be confirmed. Thank you!`
+    );
+    const whatsappUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${whatsappMsg}`;
+
+    // Attempt automatic popup transmission
+    try {
+      window.open(whatsappUrl, '_blank');
+    } catch (err) {
+      // Browser popup blocker fallback handled below
+    }
 
     const container = document.getElementById('reservation-card-container');
     if (!container) return;
 
     container.innerHTML = `
-      <div style="text-align: center; padding: 2rem 0;">
-        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(34, 103, 59, 0.1); color: #22673B; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div style="padding: 1.5rem 0;">
+        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(184, 74, 18, 0.1); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
-        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Table Reserved Successfully!</h3>
-        <p style="font-size: 0.875rem; color: #5C5348; margin-bottom: 1.5rem;">We look forward to hosting you at Calabar Kitchen, 41 & 42 Ikwerre Road, Port Harcourt.</p>
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 0.375rem;">Your Reservation Request is Ready</h3>
+        <p style="font-size: 0.875rem; color: #5C5348; text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
+          Please send it through WhatsApp. Your booking will be confirmed after the restaurant responds.
+        </p>
         
-        <div style="max-width: 24rem; margin: 0 auto 1.5rem; background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem;">
+        <div style="background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
           <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Confirmation Code</span>
+            <span style="color: #6B6155;">Reference ID</span>
             <span style="font-family: monospace; font-weight: bold; color: var(--accent-primary);">${code}</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
             <span style="color: #6B6155;">Guest Name</span>
-            <span style="font-weight: 500;">${name}</span>
+            <span style="font-weight: 500;">${escapeHtml(name)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
+            <span style="color: #6B6155;">Phone Number</span>
+            <span style="font-weight: 500;">${escapeHtml(phone)}</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
             <span style="color: #6B6155;">Date & Time</span>
-            <span style="font-weight: 500;">${date} at ${time}</span>
+            <span style="font-weight: 500;">${escapeHtml(date)} at ${escapeHtml(time)}</span>
           </div>
           <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
             <span style="color: #6B6155;">Party Size</span>
-            <span style="font-weight: 500;">${guests} Guests</span>
+            <span style="font-weight: 500;">${escapeHtml(guests)} Guests</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding-top: 0.5rem;">
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; ${notes ? 'border-bottom: 1px solid #ECE6DB;' : ''}">
             <span style="color: #6B6155;">Seating Area</span>
-            <span style="font-weight: 500;">${selectedResZone}</span>
+            <span style="font-weight: 500;">${escapeHtml(selectedResZone)}</span>
           </div>
+          ${notes ? `
+            <div style="padding-top: 0.5rem;">
+              <span style="color: #6B6155; display: block; margin-bottom: 2px;">Special Notes / Dishes</span>
+              <span style="font-weight: 500; color: var(--text-main); font-size: 0.8125rem;">${escapeHtml(notes)}</span>
+            </div>
+          ` : ''}
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;">
-          <button onclick="window.CalabarApp.confirmReservationWhatsApp()" style="padding: 0.75rem 1.25rem; background-color: var(--green-badge); color: #fff; font-size: 0.875rem; font-weight: 500; border-radius: 8px; display: flex; align-items: center; gap: 0.5rem;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            <span>Send to Kitchen WhatsApp</span>
-          </button>
-          <button onclick="window.location.reload()" style="padding: 0.75rem 1.25rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.875rem; font-weight: 500; border-radius: 8px;">
-            Book Another Table
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>Send Request via WhatsApp Now</span>
+          </a>
+
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
+            <p style="font-weight: 600; color: #1E1B18;">If WhatsApp does not open on your device:</p>
+            <p>Call our dining room directly: <a href="tel:09016607242" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">09016607242</a></p>
+            <p>Or send an email to: <a href="mailto:calabarkitchen482@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">calabarkitchen482@gmail.com</a></p>
+          </div>
+
+          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+            Edit Details / Make Another Request
           </button>
         </div>
       </div>
@@ -1052,15 +1161,16 @@
   function confirmReservationWhatsApp() {
     if (!lastReservationData) return;
     const msg = encodeURIComponent(
-      `Hello Calabar Kitchen, I just made a reservation on your website!\n\n` +
-      `Confirmation Code: ${lastReservationCode}\n` +
-      `Name: ${lastReservationData.name}\n` +
-      `Date: ${lastReservationData.date}\n` +
-      `Time: ${lastReservationData.time}\n` +
-      `Guests: ${lastReservationData.guests}\n` +
-      `Zone: ${lastReservationData.zone}\n` +
-      (lastReservationData.notes ? `Special Request: ${lastReservationData.notes}\n` : '') +
-      `Please confirm my table.`
+      `Hello Calabar Kitchen, I would like to submit a table reservation request!\n\n` +
+      `Reservation Ref: ${lastReservationCode}\n` +
+      `Customer Name: ${lastReservationData.name}\n` +
+      `Phone Number: ${lastReservationData.phone}\n` +
+      `Requested Date: ${lastReservationData.date}\n` +
+      `Requested Time: ${lastReservationData.time}\n` +
+      `Number of Guests: ${lastReservationData.guests} Guests\n` +
+      `Seating Area: ${lastReservationData.zone}\n` +
+      (lastReservationData.notes ? `Special Notes: ${lastReservationData.notes}\n` : '') +
+      `\nPlease let me know if this table can be confirmed. Thank you!`
     );
     window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank');
   }
@@ -1068,24 +1178,102 @@
   function handleContactSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const name = form.querySelector('#contact-name').value;
-    const phone = form.querySelector('#contact-phone').value;
+    const nameEl = form.querySelector('#contact-name');
+    const phoneEl = form.querySelector('#contact-phone');
+    const emailEl = form.querySelector('#contact-email');
+    const subjectEl = form.querySelector('#contact-subject');
+    const msgEl = form.querySelector('#contact-msg');
+
+    const name = nameEl ? nameEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const subject = subjectEl ? subjectEl.value.trim() : 'General Enquiry';
+    const message = msgEl ? msgEl.value.trim() : '';
+
+    if (!name || name.length < 2) {
+      if (nameEl) nameEl.focus();
+      return;
+    }
+    if (!phone || phone.length < 8) {
+      if (phoneEl) phoneEl.focus();
+      return;
+    }
+    if (!message || message.length < 3) {
+      if (msgEl) msgEl.focus();
+      return;
+    }
+
+    const whatsappMsg = encodeURIComponent(
+      `Hello Calabar Kitchen, I have an enquiry from your website!\n\n` +
+      `Sender Name: ${name}\n` +
+      `Phone Number: ${phone}\n` +
+      (email ? `Email: ${email}\n` : '') +
+      `Inquiry Topic: ${subject}\n` +
+      `Message: ${message}\n\n` +
+      `Please reply at your earliest convenience. Thank you!`
+    );
+    const whatsappUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${whatsappMsg}`;
+
+    try {
+      window.open(whatsappUrl, '_blank');
+    } catch (err) {
+      // Popup blocked fallback
+    }
 
     const card = document.getElementById('contact-form-container');
     if (!card) return;
 
     card.innerHTML = `
-      <div style="text-align: center; padding: 2.5rem 1rem;">
-        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(34, 103, 59, 0.1); color: #22673B; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div style="padding: 1.5rem 0;">
+        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(184, 74, 18, 0.1); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
-        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Enquiry Sent Successfully!</h3>
-        <p style="font-size: 0.875rem; color: #5C5348; max-width: 24rem; margin: 0 auto 1.5rem;">
-          Thank you, ${escapeHtml(name)}. Our kitchen supervisor will review your request and reply to ${escapeHtml(phone)} promptly.
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 0.375rem;">Your Enquiry is Ready</h3>
+        <p style="font-size: 0.875rem; color: #5C5348; text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
+          Your message has been formatted. Please send it through WhatsApp so our team can review and respond immediately.
         </p>
-        <button onclick="window.location.reload()" style="padding: 0.625rem 1.25rem; background-color: var(--accent-primary); color: #fff; font-size: 0.75rem; font-weight: 600; border-radius: 8px;">
-          Send Another Message
-        </button>
+
+        <div style="background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid #ECE6DB;">
+            <span style="color: #6B6155;">Sender Name</span>
+            <span style="font-weight: 500;">${escapeHtml(name)}</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
+            <span style="color: #6B6155;">Phone Number</span>
+            <span style="font-weight: 500;">${escapeHtml(phone)}</span>
+          </div>
+          ${email ? `
+            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
+              <span style="color: #6B6155;">Email</span>
+              <span style="font-weight: 500;">${escapeHtml(email)}</span>
+            </div>
+          ` : ''}
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
+            <span style="color: #6B6155;">Topic</span>
+            <span style="font-weight: 500;">${escapeHtml(subject)}</span>
+          </div>
+          <div style="padding-top: 0.5rem;">
+            <span style="color: #6B6155; display: block; margin-bottom: 2px;">Message:</span>
+            <p style="font-weight: 500; color: var(--text-main); font-size: 0.8125rem; line-height: 1.5;">${escapeHtml(message)}</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <span>Send Enquiry via WhatsApp Now</span>
+          </a>
+
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
+            <p style="font-weight: 600; color: #1E1B18;">Alternative ways to reach us:</p>
+            <p>Direct Call: <a href="tel:09016607242" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">+234 901 660 7242</a></p>
+            <p>Official Email: <a href="mailto:calabarkitchen482@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">calabarkitchen482@gmail.com</a></p>
+          </div>
+
+          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+            Write Another Message
+          </button>
+        </div>
       </div>
     `;
   }
@@ -1105,9 +1293,6 @@
 
   function resetMenuFilter() {
     activeCategory = 'all';
-    searchQuery = '';
-    const searchInput = document.getElementById('menu-search-input');
-    if (searchInput) searchInput.value = '';
     filterCategory('all');
   }
 
@@ -1149,14 +1334,19 @@
     renderMenu();
     updateCartUI();
 
-    // Search bar listener
-    const searchInput = document.getElementById('menu-search-input');
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        renderMenu();
-      });
-    }
+    // Scroll listener for Back to Top button
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // Global Escape key listener to dismiss lightboxes and modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeImageLightbox();
+        closeDishModal();
+        closeLegalModal();
+        closeCart();
+      }
+    });
   });
 
   // Export to global namespace for inline onclick handlers
@@ -1165,6 +1355,9 @@
     closeDishModal,
     selectModalSwallow,
     addFromModal,
+    openImageLightbox,
+    closeImageLightbox,
+    scrollToTop,
     openLegalModal,
     closeLegalModal,
     addToCart,

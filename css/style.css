@@ -106,6 +106,16 @@ input, select, textarea {
   font-variant-numeric: tabular-nums;
 }
 
+/* Accessibility Focus States */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
 /* Container */
 .container {
   max-width: 1280px;
@@ -185,7 +195,7 @@ input, select, textarea {
 }
 
 .brand-subtext {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-subtle);
@@ -999,12 +1009,12 @@ input, select, textarea {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  background-color: rgba(30, 27, 24, 0.9);
+  background-color: rgba(30, 27, 24, 0.92);
   backdrop-filter: blur(4px);
   color: #F5E6D3;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  padding: 0.125rem 0.5rem;
+  padding: 0.15rem 0.55rem;
   border-radius: var(--radius-sm);
   letter-spacing: 0.025em;
 }
@@ -1013,11 +1023,12 @@ input, select, textarea {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
-  font-size: 11px;
-  padding: 0.125rem 0.5rem;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -1815,3 +1826,215 @@ input, select, textarea {
 /* Utilities */
 .hidden { display: none !important; }
 .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* Designed by Ahiafor Digital Link */
+.designed-by-link {
+  color: var(--accent-warm);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.designed-by-link:hover {
+  color: #FFFFFF;
+}
+
+/* Food Images Subtle Expand on Hover */
+.dish-card-image-box,
+.pot-thumb-box,
+.hero-media-wrapper {
+  cursor: pointer;
+}
+
+.dish-card-img,
+.pot-thumb,
+.hero-media-img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.dish-card:hover .dish-card-img,
+.dish-card-image-box:hover .dish-card-img,
+.pot-card:hover .pot-thumb,
+.pot-thumb-box:hover .pot-thumb,
+.hero-media-wrapper:hover .hero-media-img {
+  transform: scale(1.06);
+}
+
+.dish-card-image-box:hover::after {
+  content: 'Click for full view';
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background-color: rgba(24, 21, 18, 0.85);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Image Lightbox Modal */
+.image-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(18, 15, 13, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.image-lightbox-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-dialog {
+  position: relative;
+  max-width: 52rem;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1E1A17;
+  border: 1px solid #352E28;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+.image-lightbox-overlay.is-open .lightbox-dialog {
+  transform: scale(1);
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-close-btn:hover {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: scale(1.08);
+}
+
+.lightbox-image-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #14110E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 65vh;
+  overflow: hidden;
+}
+
+.lightbox-img {
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightbox-caption {
+  padding: 1.25rem 1.5rem;
+  background-color: #1E1A17;
+  border-top: 1px solid #352E28;
+  color: #FFFFFF;
+}
+
+.lightbox-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.lightbox-badge {
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  background-color: rgba(200, 90, 23, 0.2);
+  color: var(--accent-warm);
+  border: 1px solid rgba(200, 90, 23, 0.35);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.lightbox-desc {
+  font-size: 0.8125rem;
+  color: #B5ACA2;
+  margin-top: 0.375rem;
+  line-height: 1.5;
+}
+
+/* Back to Top Arrow Button */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 35;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(184, 74, 18, 0.45);
+  cursor: pointer;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+.back-to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 74, 18, 0.55);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(0);
+}
