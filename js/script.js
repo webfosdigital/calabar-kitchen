@@ -243,7 +243,7 @@
       description: 'Refreshing cold brew of natural roselle hibiscus petals steeped with pressed ginger, cloves, and pineapple peel for natural sweetness.',
       ingredients: ['Hibiscus Sepals', 'Fresh Ginger', 'Cloves (Kanunfari)', 'Pineapple Essence'],
       spiceLevel: 'Mild',
-      image: './assets/images/drink_palm_wine_1794194344210.jpg',
+      image: './assets/images/drink_zobo_hibiscus_1794198536386.jpg',
       availableToday: true,
     },
   ];
@@ -429,7 +429,7 @@
               <span style="color: #6B6155;">Fulfillment</span>
               <span style="text-transform: capitalize; font-weight: 500;">${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 Ikwerre Road'}</span>
             </div>
-            <p style="font-size: 0.75rem; color: #7A7064; border-top: 1px solid #ECE6DB; padding-top: 0.5rem; margin-top: 0.5rem;">
+            <p style="font-size: 0.875rem; color: #7A7064; border-top: 1px solid #ECE6DB; padding-top: 0.5rem; margin-top: 0.5rem; line-height: 1.5;">
               Payment is settled upon delivery or pickup via Cash or Direct Bank Transfer.
             </p>
           </div>
@@ -439,11 +439,11 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               <span>Send Order via WhatsApp to Confirm</span>
             </button>
-            <a href="tel:09016607242" style="width: 100%; padding: 0.625rem; border: 1px solid #D5CDC0; color: #3A322A; font-size: 0.75rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:09016607242" style="width: 100%; padding: 0.625rem; border: 1px solid #D5CDC0; color: #3A322A; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>Call Kitchen Directly: 09016607242</span>
             </a>
-            <button onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid #DFD7CB; color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+            <button onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid #DFD7CB; color: #4A4136; font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
               Done / Close Bag
             </button>
           </div>

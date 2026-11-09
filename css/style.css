@@ -62,6 +62,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 body {
@@ -71,6 +73,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -119,6 +125,7 @@ textarea:focus-visible {
 /* Container */
 .container {
   max-width: 1280px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -177,11 +184,18 @@ textarea:focus-visible {
 
 .brand-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.025em;
   color: var(--text-main);
   transition: color 0.2s;
+  line-height: 1.15;
+}
+
+@media (min-width: 380px) {
+  .brand-title {
+    font-size: 1.5rem;
+  }
 }
 
 .brand-wordmark:hover .brand-title {
@@ -195,9 +209,9 @@ textarea:focus-visible {
 }
 
 .brand-subtext {
-  font-size: 12px;
+  font-size: 13px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: var(--text-subtle);
   font-weight: 500;
   margin-top: -2px;
@@ -258,7 +272,7 @@ textarea:focus-visible {
   background-color: var(--accent-primary);
   color: #FFFFFF;
   border-radius: var(--radius-md);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
@@ -518,8 +532,8 @@ textarea:focus-visible {
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
   text-align: left;
 }
 
@@ -543,7 +557,7 @@ textarea:focus-visible {
 }
 
 .pillar-label {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #6B6155;
   margin-top: 0.125rem;
   line-height: 1.4;
@@ -588,7 +602,7 @@ textarea:focus-visible {
 }
 
 .media-kicker {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -604,9 +618,10 @@ textarea:focus-visible {
 }
 
 .media-desc {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #D8D2C5;
   margin-top: 0.25rem;
+  line-height: 1.5;
 }
 
 /* ==========================================================================
@@ -623,7 +638,7 @@ textarea:focus-visible {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
@@ -696,7 +711,7 @@ textarea:focus-visible {
   padding-bottom: 0.75rem;
   margin-bottom: 0.75rem;
   border-bottom: 1px solid #ECE6DB;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
 }
 
 .status-badge-ready {
@@ -754,7 +769,7 @@ textarea:focus-visible {
 }
 
 .pot-native {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--text-subtle);
   font-style: italic;
   margin-top: 0.125rem;
@@ -779,7 +794,7 @@ textarea:focus-visible {
 }
 
 .pot-swallow-note {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-subtle);
   margin-bottom: 1rem;
 }
@@ -794,7 +809,7 @@ textarea:focus-visible {
 }
 
 .btn-pot-detail {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #7C3F10;
   transition: color 0.2s;
@@ -808,7 +823,7 @@ textarea:focus-visible {
   padding: 0.5rem 1rem;
   background-color: var(--accent-primary);
   color: #FFFFFF;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   border-radius: var(--radius-md);
   display: flex;
@@ -833,7 +848,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #63594D;
 }
 
@@ -842,7 +857,7 @@ textarea:focus-visible {
   color: var(--accent-primary);
   text-decoration: underline;
   text-underline-offset: 2px;
-  flex-shrink: 0;
+  display: inline-block;
 }
 
 .bulk-notice-link:hover {
@@ -1012,7 +1027,7 @@ textarea:focus-visible {
   background-color: rgba(30, 27, 24, 0.92);
   backdrop-filter: blur(4px);
   color: #F5E6D3;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   padding: 0.15rem 0.55rem;
   border-radius: var(--radius-sm);
@@ -1026,7 +1041,7 @@ textarea:focus-visible {
   background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   padding: 0.15rem 0.55rem;
   border-radius: var(--radius-sm);
@@ -1065,7 +1080,7 @@ textarea:focus-visible {
 }
 
 .dish-native-name {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-subtle);
   font-style: italic;
   margin-bottom: 0.75rem;
@@ -1083,7 +1098,7 @@ textarea:focus-visible {
 }
 
 .dish-ingredients-preview {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-subtle);
   border-top: 1px solid #F0EBE2;
   padding-top: 0.75rem;
@@ -1102,7 +1117,7 @@ textarea:focus-visible {
 }
 
 .btn-dish-detail {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-muted);
   display: flex;
@@ -1118,7 +1133,7 @@ textarea:focus-visible {
 
 .btn-dish-add {
   padding: 0.5rem 1rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   background-color: var(--accent-primary);
@@ -1261,7 +1276,7 @@ textarea:focus-visible {
 }
 
 .pillar-card-desc {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--dark-text-muted);
   line-height: 1.6;
 }
@@ -1293,8 +1308,10 @@ textarea:focus-visible {
   background-color: #FFFFFF;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border-card);
-  padding: 1.5rem;
+  padding: 1.25rem;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
+  width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -1329,7 +1346,7 @@ textarea:focus-visible {
 
 .form-label {
   display: block;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -1368,7 +1385,7 @@ textarea:focus-visible {
 
 .zone-selector-btn {
   padding: 0.75rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 500;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-card);
@@ -1470,13 +1487,13 @@ textarea:focus-visible {
 }
 
 .author-location {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--text-subtle);
   margin-top: 0.125rem;
 }
 
 .author-fav {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #7C3F10;
   font-weight: 500;
   margin-top: 0.5rem;
@@ -1510,8 +1527,16 @@ textarea:focus-visible {
   background-color: #FFFFFF;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-card);
-  padding: 1.5rem;
+  padding: 1.25rem;
   box-shadow: var(--shadow-sm);
+  min-width: 0;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .contact-card {
+    padding: 2rem;
+  }
 }
 
 .contact-channel-item {
@@ -1538,7 +1563,7 @@ textarea:focus-visible {
 }
 
 .contact-channel-label {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-subtle);
   display: block;
 }
@@ -1553,7 +1578,7 @@ textarea:focus-visible {
   padding: 0.625rem;
   background-color: var(--green-badge);
   color: #FFFFFF;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-md);
   display: flex;
@@ -1611,7 +1636,7 @@ textarea:focus-visible {
 
 .footer-list {
   list-style: none;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #B8ADA1;
 }
 
@@ -1630,7 +1655,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: #8A8073;
 }
 
@@ -1753,7 +1778,7 @@ textarea:focus-visible {
 
 .cart-stepper-qty {
   padding: 0 0.5rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text-main);
 }
@@ -1984,7 +2009,7 @@ textarea:focus-visible {
 }
 
 .lightbox-badge {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   padding: 3px 9px;
   background-color: rgba(200, 90, 23, 0.2);
   color: var(--accent-warm);
@@ -1994,7 +2019,7 @@ textarea:focus-visible {
 }
 
 .lightbox-desc {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: #B5ACA2;
   margin-top: 0.375rem;
   line-height: 1.5;
