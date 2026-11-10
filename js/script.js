@@ -85,7 +85,7 @@
       description: 'Rare traditional Cross River specialty made from finely sliced editan leaves with their characteristic pleasant bitter notes, balanced with fresh waterleaf, assorted meats, and dried river prawns.',
       ingredients: ['Editan Leaves', 'Fresh Waterleaf', 'Assorted Offals & Beef', 'River Prawns', 'Periwinkles', 'Smoked Bonga Fish'],
       spiceLevel: 'Medium',
-      image: './assets/images/dish_afang_soup_1794102728482.jpg',
+      image: './assets/images/dish_editan_soup_nanobanana.jpg',
       recommendedSwallow: 'Fufu (Akpu) or Pounded Yam',
       isDailyPot: true,
     },
@@ -98,7 +98,7 @@
       description: 'Light, silky, and profoundly comforting native soup made with freshly harvested waterleaf, smoked dried fish, crayfish, and tender shredded meats simmered in aromatic broth.',
       ingredients: ['Garden Fresh Waterleaf', 'Smoked Fish', 'Shredded Beef', 'Native Seasoning', 'Crayfish'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_white_soup_1794102729231.jpg',
+      image: './assets/images/dish_waterleaf_soup_nanobanana.jpg',
       recommendedSwallow: 'Yellow Garri or Semovita',
       isDailyPot: true,
     },
@@ -170,7 +170,7 @@
       description: 'Light, golden, perfectly whisked semolina swallow with velvety consistency.',
       ingredients: ['Premium Milled Semolina'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_pounded_yam_1794196895734.jpg',
+      image: './assets/images/dish_semovita_nanobanana.jpg',
     },
     {
       id: 'fufu',
@@ -181,7 +181,7 @@
       description: 'Silky, traditionally fermented cassava fufu with distinct pleasant aroma, ideal for soaking up rich Afang and Editan soups.',
       ingredients: ['Fermented Wet Cassava Paste'],
       spiceLevel: 'Mild',
-      image: './assets/images/dish_pounded_yam_1794196895734.jpg',
+      image: './assets/images/dish_native_fufu_akpu_nanobanana.jpg',
     },
     {
       id: 'party-jollof',
@@ -205,7 +205,7 @@
       description: 'Fragrant rice cooked gently in freshly pressed rich coconut milk, smoked bonga fish, ground river crayfish, and dry pepper. Topped with peppered smoked fish.',
       ingredients: ['Pure Fresh Coconut Milk', 'Smoked Fish Chunks', 'Crayfish', 'Scotch Bonnet', 'Tender Seasoned Beef'],
       spiceLevel: 'Medium',
-      image: './assets/images/dish_party_jollof_1794194344303.jpg',
+      image: './assets/images/dish_coconut_rice_nanobanana.jpg',
       isDailyPot: true,
     },
     {
@@ -313,15 +313,37 @@
     if (!container) return;
 
     const filtered = MENU_ITEMS.filter((item) => {
-      return activeCategory === 'all' || item.category === activeCategory;
+      const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+      const matchesSearch = !searchQuery || 
+        item.name.toLowerCase().includes(searchQuery) || 
+        (item.nativeName && item.nativeName.toLowerCase().includes(searchQuery)) ||
+        item.description.toLowerCase().includes(searchQuery) ||
+        item.ingredients.some(ing => ing.toLowerCase().includes(searchQuery));
+      return matchesCategory && matchesSearch;
     });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1.5rem; background-color: #FFFFFF; border-radius: var(--radius-lg); border: 1px dashed var(--border-card);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" style="margin: 0 auto 1rem;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--text-main); margin-bottom: 0.5rem;">No dishes found</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
+            We could not find any dishes matching "${escapeHtml(searchQuery)}". Try searching for another native ingredient or reset the filter.
+          </p>
+          <button onclick="window.CalabarApp.resetMenuFilter()" style="padding: 0.625rem 1.25rem; background-color: var(--accent-primary); color: #FFFFFF; font-size: 0.875rem; font-weight: 600; border-radius: var(--radius-md); cursor: pointer;">
+            View Complete Menu
+          </button>
+        </div>
+      `;
+      return;
+    }
 
     container.innerHTML = filtered.map((dish) => {
       return `
         <article class="dish-card">
           <div>
             <div class="dish-card-image-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
-              <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Authentic Nigerian delicacy at Calabar Kitchen Port Harcourt" class="dish-card-img" loading="lazy">
+              <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Traditional Cross River dish prepared fresh at Calabar Kitchen Port Harcourt" class="dish-card-img" loading="lazy">
               ${dish.isChefSpecial ? `<span class="dish-special-tag">Chef's Native Signature</span>` : ''}
               <span class="dish-spice-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E87A38" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
@@ -1270,8 +1292,16 @@
     renderMenu();
   }
 
+  function handleSearch(query) {
+    searchQuery = (query || '').trim().toLowerCase();
+    renderMenu();
+  }
+
   function resetMenuFilter() {
     activeCategory = 'all';
+    searchQuery = '';
+    const searchInput = document.getElementById('dish-search-input');
+    if (searchInput) searchInput.value = '';
     filterCategory('all');
   }
 
@@ -1371,6 +1401,7 @@
     confirmReservationWhatsApp,
     handleContactSubmit,
     filterCategory,
+    handleSearch,
     resetMenuFilter,
     toggleMobileMenu,
   };
