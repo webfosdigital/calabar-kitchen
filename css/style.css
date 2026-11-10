@@ -247,7 +247,7 @@ textarea:focus-visible {
 }
 
 .brand-subtext {
-  font-size: 0.875rem; /* 14px on mobile as required */
+  font-size: 14px; /* Minimum 14px on all mobile and desktop screen sizes */
   line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -268,7 +268,7 @@ textarea:focus-visible {
 
 @media (min-width: 640px) {
   .brand-subtext {
-    font-size: 0.875rem; /* 14px */
+    font-size: 14px;
     letter-spacing: 0.06em;
     white-space: nowrap;
     margin-top: 0.1rem;
@@ -362,11 +362,6 @@ textarea:focus-visible {
     font-size: 1.22rem;
     font-weight: 700;
   }
-  .brand-subtext {
-    font-size: 0.875rem; /* Strictly 14px minimum */
-    letter-spacing: 0.04em;
-    row-gap: 0.08rem;
-  }
   .header-actions {
     gap: 0.35rem;
   }
@@ -381,10 +376,6 @@ textarea:focus-visible {
   .brand-title {
     font-size: 1.18rem;
     font-weight: 700;
-  }
-  .brand-subtext {
-    font-size: 0.875rem; /* Strictly 14px minimum */
-    letter-spacing: 0.03em;
   }
   .btn-primary-cart {
     padding: 0.4rem 0.5rem;

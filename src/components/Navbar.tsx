@@ -37,7 +37,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-[#1E1B18] group-hover:text-[#B84A12] transition-colors">
               Calabar Kitchen
             </span>
-            <span className="text-[11px] uppercase tracking-widest text-[#7C7267] font-medium -mt-1">
+            <span className="text-[14px] uppercase tracking-wider text-[#7C7267] font-medium mt-0.5">
               Cross River Native Cuisine
             </span>
           </a>
