@@ -169,29 +169,38 @@ textarea:focus-visible {
 }
 
 .header-container {
-  height: 80px;
+  min-height: 72px;
+  height: auto;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 480px) {
   .header-container {
-    height: 72px;
+    min-height: 68px;
     gap: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }
 
 @media (max-width: 360px) {
   .header-container {
-    height: 68px;
+    min-height: 64px;
     gap: 0.35rem;
   }
 }
 
 @media (min-width: 640px) {
   .header-container {
+    height: 80px;
+    padding-top: 0;
+    padding-bottom: 0;
     gap: 2rem;
   }
 }
@@ -200,8 +209,12 @@ textarea:focus-visible {
 .brand-wordmark {
   display: flex;
   flex-direction: column;
-  white-space: nowrap;
-  flex-shrink: 0;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: fit-content;
+  flex: 1 1 auto;
+  text-decoration: none;
 }
 
 .brand-title {
@@ -212,6 +225,7 @@ textarea:focus-visible {
   color: var(--text-main);
   transition: color 0.2s;
   line-height: 1.15;
+  white-space: nowrap;
 }
 
 @media (min-width: 380px) {
@@ -231,12 +245,35 @@ textarea:focus-visible {
 }
 
 .brand-subtext {
-  font-size: 13px;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-subtle);
-  font-weight: 500;
-  margin-top: -2px;
+  font-weight: 600;
+  margin-top: 0.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.35rem;
+  row-gap: 0.05rem;
+  max-width: 100%;
+}
+
+.brand-subtext-item {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+@media (min-width: 640px) {
+  .brand-subtext {
+    font-size: 0.75rem; /* 12px */
+    white-space: nowrap;
+    margin-top: 0;
+    display: block;
+  }
+  .brand-subtext-item {
+    display: inline;
+  }
 }
 
 /* Zone 2: Navigation Links */

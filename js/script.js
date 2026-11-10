@@ -46,8 +46,7 @@
       isChefSpecial: true,
       image: './assets/images/dish_afang_soup_1794102728482.jpg',
       recommendedSwallow: 'Pounded Yam or Yellow Garri (Eba)',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'white-soup',
@@ -61,8 +60,7 @@
       isChefSpecial: true,
       image: './assets/images/dish_white_soup_1794102729231.jpg',
       recommendedSwallow: 'Steaming Hot Pounded Yam',
-      availableToday: true,
-      potStatus: 'Simmering Fresh',
+      isDailyPot: true,
     },
     {
       id: 'edikang-ikong',
@@ -76,8 +74,7 @@
       isChefSpecial: true,
       image: './assets/images/dish_edikang_ikong_1794194343523.jpg',
       recommendedSwallow: 'Yellow Garri (Eba) or Semovita',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'editan-soup',
@@ -90,8 +87,7 @@
       spiceLevel: 'Medium',
       image: './assets/images/dish_afang_soup_1794102728482.jpg',
       recommendedSwallow: 'Fufu (Akpu) or Pounded Yam',
-      availableToday: true,
-      potStatus: 'Limited Portions',
+      isDailyPot: true,
     },
     {
       id: 'waterleaf-soup',
@@ -104,8 +100,7 @@
       spiceLevel: 'Mild',
       image: './assets/images/dish_white_soup_1794102729231.jpg',
       recommendedSwallow: 'Yellow Garri or Semovita',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'dog-meat-pepper-soup',
@@ -118,8 +113,7 @@
       spiceLevel: 'Fiery',
       isChefSpecial: true,
       image: './assets/images/dish_pepper_soup_1794102730377.jpg',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'cow-head-tail-pepper-soup',
@@ -131,8 +125,7 @@
       ingredients: ['Braised Cow Tail', 'Cow Head Cuts', 'Calabash Nutmeg', 'Utazi Leaves', 'Native Herbal Infusion', 'Crushed Chili'],
       spiceLevel: 'Hot',
       image: './assets/images/dish_cow_head_tail_1794196879407.jpg',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'assorted-meat-pepper-soup',
@@ -144,8 +137,7 @@
       ingredients: ['Beef Tripe (Shaki)', 'Liver & Kidney', 'Tender Beef', 'Aromatic Native Spices', 'Scent Leaves'],
       spiceLevel: 'Hot',
       image: './assets/images/dish_assorted_meat_1794196880883.jpg',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'pounded-yam',
@@ -157,7 +149,6 @@
       ingredients: ['100% Premium White Yam'],
       spiceLevel: 'Mild',
       image: './assets/images/dish_pounded_yam_1794196895734.jpg',
-      availableToday: true,
     },
     {
       id: 'yellow-garri',
@@ -169,7 +160,6 @@
       ingredients: ['Yellow Cassava Garri', 'Hot Filtered Water'],
       spiceLevel: 'Mild',
       image: './assets/images/dish_yellow_garri_1794196895648.jpg',
-      availableToday: true,
     },
     {
       id: 'semovita',
@@ -181,7 +171,6 @@
       ingredients: ['Premium Milled Semolina'],
       spiceLevel: 'Mild',
       image: './assets/images/dish_pounded_yam_1794196895734.jpg',
-      availableToday: true,
     },
     {
       id: 'fufu',
@@ -193,7 +182,6 @@
       ingredients: ['Fermented Wet Cassava Paste'],
       spiceLevel: 'Mild',
       image: './assets/images/dish_pounded_yam_1794196895734.jpg',
-      availableToday: true,
     },
     {
       id: 'party-jollof',
@@ -206,8 +194,7 @@
       spiceLevel: 'Medium',
       isChefSpecial: true,
       image: './assets/images/dish_party_jollof_1794194344303.jpg',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'native-coconut-rice',
@@ -219,8 +206,7 @@
       ingredients: ['Pure Fresh Coconut Milk', 'Smoked Fish Chunks', 'Crayfish', 'Scotch Bonnet', 'Tender Seasoned Beef'],
       spiceLevel: 'Medium',
       image: './assets/images/dish_party_jollof_1794194344303.jpg',
-      availableToday: true,
-      potStatus: 'Ready to Serve',
+      isDailyPot: true,
     },
     {
       id: 'fresh-palm-wine',
@@ -232,7 +218,6 @@
       ingredients: ['100% Pure Natural Palm Sap'],
       spiceLevel: 'Mild',
       image: './assets/images/drink_palm_wine_1794194344210.jpg',
-      availableToday: true,
     },
     {
       id: 'calabar-zobo',
@@ -244,7 +229,6 @@
       ingredients: ['Hibiscus Sepals', 'Fresh Ginger', 'Cloves (Kanunfari)', 'Pineapple Essence'],
       spiceLevel: 'Mild',
       image: './assets/images/drink_zobo_hibiscus_1794198536386.jpg',
-      availableToday: true,
     },
   ];
 
@@ -279,7 +263,7 @@
     const container = document.getElementById('daily-pots-grid');
     if (!container) return;
 
-    const dailyPots = MENU_ITEMS.filter((item) => item.potStatus);
+    const dailyPots = MENU_ITEMS.filter((item) => item.isDailyPot);
     container.innerHTML = dailyPots.map((dish) => {
       const whatsappAvailabilityUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${encodeURIComponent('Hello Calabar Kitchen, I would like to check today\'s availability for ' + dish.name + ' (₦' + dish.price.toLocaleString() + ').')}`;
 
