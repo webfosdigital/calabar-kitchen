@@ -247,7 +247,7 @@ textarea:focus-visible {
 }
 
 .brand-subtext {
-  font-size: 14px; /* Minimum 14px on all mobile and desktop screen sizes */
+  font-size: 14px !important; /* Strict minimum 14px on all mobile and desktop screen sizes */
   line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -262,13 +262,14 @@ textarea:focus-visible {
 }
 
 .brand-subtext-item {
+  font-size: 14px !important;
   white-space: nowrap;
   display: inline-block;
 }
 
 @media (min-width: 640px) {
   .brand-subtext {
-    font-size: 14px;
+    font-size: 14px !important;
     letter-spacing: 0.06em;
     white-space: nowrap;
     margin-top: 0.1rem;
