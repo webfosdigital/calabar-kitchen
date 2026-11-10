@@ -169,7 +169,7 @@ textarea:focus-visible {
 }
 
 .header-container {
-  min-height: 72px;
+  min-height: 74px;
   height: auto;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
@@ -182,7 +182,7 @@ textarea:focus-visible {
 
 @media (max-width: 480px) {
   .header-container {
-    min-height: 68px;
+    min-height: 74px;
     gap: 0.5rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -191,8 +191,10 @@ textarea:focus-visible {
 
 @media (max-width: 360px) {
   .header-container {
-    min-height: 64px;
+    min-height: 74px;
     gap: 0.35rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
   }
 }
 
@@ -220,7 +222,7 @@ textarea:focus-visible {
 .brand-title {
   font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.025em;
   color: var(--text-main);
   transition: color 0.2s;
@@ -245,17 +247,17 @@ textarea:focus-visible {
 }
 
 .brand-subtext {
-  font-size: 0.6875rem; /* 11px */
+  font-size: 0.875rem; /* 14px on mobile as required */
   line-height: 1.25;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   color: var(--text-subtle);
-  font-weight: 600;
-  margin-top: 0.125rem;
+  font-weight: 500;
+  margin-top: 0.15rem;
   display: flex;
   flex-wrap: wrap;
   column-gap: 0.35rem;
-  row-gap: 0.05rem;
+  row-gap: 0.06rem;
   max-width: 100%;
 }
 
@@ -266,9 +268,10 @@ textarea:focus-visible {
 
 @media (min-width: 640px) {
   .brand-subtext {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.875rem; /* 14px */
+    letter-spacing: 0.06em;
     white-space: nowrap;
-    margin-top: 0;
+    margin-top: 0.1rem;
     display: block;
   }
   .brand-subtext-item {
@@ -356,25 +359,32 @@ textarea:focus-visible {
 
 @media (max-width: 360px) {
   .brand-title {
-    font-size: 1.2rem;
+    font-size: 1.22rem;
+    font-weight: 700;
   }
   .brand-subtext {
-    font-size: 11px;
-    letter-spacing: 0.05em;
+    font-size: 0.875rem; /* Strictly 14px minimum */
+    letter-spacing: 0.04em;
+    row-gap: 0.08rem;
   }
   .header-actions {
     gap: 0.35rem;
   }
   .btn-primary-cart {
-    padding: 0.45rem 0.625rem;
+    padding: 0.45rem 0.6rem;
     font-size: 0.8125rem;
-    gap: 0.35rem;
+    gap: 0.3rem;
   }
 }
 
 @media (max-width: 320px) {
   .brand-title {
-    font-size: 1.1rem;
+    font-size: 1.18rem;
+    font-weight: 700;
+  }
+  .brand-subtext {
+    font-size: 0.875rem; /* Strictly 14px minimum */
+    letter-spacing: 0.03em;
   }
   .btn-primary-cart {
     padding: 0.4rem 0.5rem;
