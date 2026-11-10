@@ -281,29 +281,24 @@
 
     const dailyPots = MENU_ITEMS.filter((item) => item.potStatus);
     container.innerHTML = dailyPots.map((dish) => {
-      let statusHtml = '';
-      if (dish.potStatus === 'Ready to Serve') {
-        statusHtml = `<span class="status-badge-ready"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Ready to Serve</span>`;
-      } else if (dish.potStatus === 'Simmering Fresh') {
-        statusHtml = `<span class="status-badge-simmer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Simmering Fresh</span>`;
-      } else {
-        statusHtml = `<span class="status-badge-limited"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> Limited Portions Left</span>`;
-      }
+      const whatsappAvailabilityUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${encodeURIComponent('Hello Calabar Kitchen, I would like to check today\'s availability for ' + dish.name + ' (₦' + dish.price.toLocaleString() + ').')}`;
 
       return `
         <article class="pot-card">
           <div>
             <div class="pot-status-strip">
-              ${statusHtml}
-              <span style="color: #7A7064; display: flex; align-items: center; gap: 4px;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                Piping Hot
+              <span class="status-badge-ready">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Daily Pot Specialty
               </span>
+              <a href="${whatsappAvailabilityUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-size: 0.8125rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; text-decoration: underline;" title="Check portion availability with kitchen">
+                Confirm Availability &rarr;
+              </a>
             </div>
 
             <div class="pot-body">
               <div class="pot-thumb-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
-                <img src="${dish.image}" alt="${dish.name}" class="pot-thumb" loading="lazy">
+                <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Traditional Cross River dish at Calabar Kitchen" class="pot-thumb" loading="lazy">
               </div>
               <div>
                 <h3 class="pot-title">${dish.name}</h3>
@@ -342,7 +337,7 @@
         <article class="dish-card">
           <div>
             <div class="dish-card-image-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
-              <img src="${dish.image}" alt="${dish.name}" class="dish-card-img" loading="lazy">
+              <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Authentic Nigerian delicacy at Calabar Kitchen Port Harcourt" class="dish-card-img" loading="lazy">
               ${dish.isChefSpecial ? `<span class="dish-special-tag">Chef's Native Signature</span>` : ''}
               <span class="dish-spice-tag">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E87A38" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
@@ -619,7 +614,7 @@
 
     content.innerHTML = `
       <div style="position: relative; height: 14rem; background-color: var(--bg-alt); flex-shrink: 0; cursor: pointer;" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click for full photo view">
-        <img src="${dish.image}" alt="${dish.name}" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Calabar Kitchen Port Harcourt" style="width: 100%; height: 100%; object-fit: cover;">
         <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 1.5rem;">
           <div>
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #E8C4A2; font-weight: 600;">
@@ -639,7 +634,7 @@
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
               ${dish.spiceLevel} Spice
             </span>
-            ${dish.potStatus ? `<span style="font-size: 0.75rem; color: var(--green-badge); font-weight: 500;">${dish.potStatus}</span>` : ''}
+            <span style="font-size: 0.8125rem; color: #5C5348; background-color: var(--bg-alt); padding: 3px 8px; border-radius: 6px; font-weight: 500;">Availability confirmed upon order</span>
           </div>
           <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: bold; color: var(--text-main);" class="tabular-nums">
             ₦${dish.price.toLocaleString()}
@@ -1230,7 +1225,7 @@
         </div>
         <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 0.375rem;">Your Enquiry is Ready</h3>
         <p style="font-size: 0.875rem; color: #5C5348; text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
-          Your message has been formatted. Please send it through WhatsApp so our team can review and respond immediately.
+          Thank you for contacting Calabar Kitchen. Your message has been prepared below. Please send it through WhatsApp; our team will review your enquiry and respond as soon as possible.
         </p>
 
         <div style="background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
@@ -1264,13 +1259,13 @@
             <span>Send Enquiry via WhatsApp Now</span>
           </a>
 
-          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.875rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
             <p style="font-weight: 600; color: #1E1B18;">Alternative ways to reach us:</p>
             <p>Direct Call: <a href="tel:09016607242" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">+234 901 660 7242</a></p>
             <p>Official Email: <a href="mailto:calabarkitchen482@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">calabarkitchen482@gmail.com</a></p>
           </div>
 
-          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
             Write Another Message
           </button>
         </div>
@@ -1298,12 +1293,26 @@
 
   function toggleMobileMenu(forceClose) {
     const sheet = document.getElementById('mobile-nav-sheet');
+    const btn = document.getElementById('mobile-menu-toggle-btn') || document.querySelector('.hamburger-btn');
     if (!sheet) return;
 
-    if (forceClose) {
+    const isOpen = sheet.classList.contains('is-open');
+    const shouldClose = forceClose || isOpen;
+
+    if (shouldClose) {
       sheet.classList.remove('is-open');
+      if (btn) {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open navigation menu');
+      }
     } else {
-      sheet.classList.toggle('is-open');
+      sheet.classList.add('is-open');
+      if (btn) {
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close navigation menu');
+      }
     }
   }
 
