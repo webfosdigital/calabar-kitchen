@@ -272,7 +272,7 @@
           <div>
             <div class="pot-status-strip">
               <span class="status-badge-ready">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
                 Daily Pot Specialty
               </span>
               <a href="${whatsappAvailabilityUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-size: 0.8125rem; font-weight: 500; display: inline-flex; align-items: center; gap: 4px; text-decoration: underline;" title="Check portion availability with kitchen">
@@ -819,11 +819,21 @@
 
   function handleScroll() {
     const btn = document.getElementById('back-to-top-btn');
-    if (!btn) return;
-    if (window.scrollY > 350) {
-      btn.classList.add('is-visible');
-    } else {
-      btn.classList.remove('is-visible');
+    if (btn) {
+      if (window.scrollY > 350) {
+        btn.classList.add('is-visible');
+      } else {
+        btn.classList.remove('is-visible');
+      }
+    }
+
+    const header = document.querySelector('.site-header');
+    if (header) {
+      if (window.scrollY > 15) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
     }
   }
 
