@@ -229,9 +229,8 @@ textarea:focus-visible {
 .brand-wordmark {
   display: flex;
   align-items: center;
-  min-width: 0;
-  max-width: fit-content;
-  flex: 1 1 auto;
+  flex-shrink: 0;
+  min-width: max-content;
   text-decoration: none;
 }
 
@@ -258,6 +257,12 @@ textarea:focus-visible {
 
 @media (min-width: 640px) {
   .brand-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1180px) {
+  .brand-title {
     font-size: 1.875rem;
   }
 }
@@ -271,17 +276,18 @@ textarea:focus-visible {
   display: none !important;
 }
 
-/* Zone 2: Navigation Links */
+/* Zone 2: Navigation Links - Active on Full Desktop only (1180px+), Tablets use Hamburger */
 .nav-links {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   font-size: 15px;
   font-weight: 500;
   color: var(--text-secondary);
+  flex-shrink: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1180px) {
   .nav-links {
     display: flex;
   }
@@ -419,7 +425,7 @@ textarea:focus-visible {
   transition: stroke 0.2s;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1180px) {
   .hamburger-btn {
     display: none;
   }
@@ -806,6 +812,7 @@ textarea:focus-visible {
 
 .section-kicker {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
@@ -814,6 +821,11 @@ textarea:focus-visible {
   font-weight: 600;
   color: var(--accent-primary);
   margin-bottom: 0.5rem;
+}
+
+.nowrap-text {
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .section-title {
@@ -826,6 +838,112 @@ textarea:focus-visible {
 @media (min-width: 640px) {
   .section-title {
     font-size: 2.25rem;
+  }
+}
+
+/* Mobile heading single-row and two-row rules */
+.menu-title-nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .menu-title-nowrap {
+    font-size: clamp(1.05rem, 5vw, 1.65rem);
+    white-space: nowrap;
+  }
+}
+
+.reservation-title-tworows .heading-row {
+  display: block;
+  white-space: nowrap;
+}
+
+@media (max-width: 639px) {
+  .reservation-title-tworows {
+    font-size: clamp(1.2rem, 5.3vw, 1.65rem);
+    line-height: 1.25;
+  }
+  .reservation-title-tworows .heading-row {
+    display: block;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 640px) {
+  .reservation-title-tworows .heading-row {
+    display: inline;
+    white-space: normal;
+  }
+}
+
+/* Mobile Scoped Refinements */
+@media (max-width: 639px) {
+  /* Kickers side-by-side on single line without extending to two lines */
+  .kicker-nowrap-mobile {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    gap: 0.35rem !important;
+  }
+  .kicker-nowrap-mobile > span {
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+  .kicker-table-booking {
+    font-size: clamp(0.68rem, 3.1vw, 0.8125rem) !important;
+    letter-spacing: 0.02em !important;
+  }
+  .kicker-menu {
+    font-size: clamp(0.7rem, 3.3vw, 0.8125rem) !important;
+    letter-spacing: 0.02em !important;
+  }
+  .kicker-daily-pots {
+    font-size: clamp(0.64rem, 2.95vw, 0.8125rem) !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Online Table Reservation Form on one line */
+  .online-res-title {
+    font-size: clamp(1rem, 4.6vw, 1.25rem) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Side-by-side on same column, can extend to two lines each */
+  .kicker-sidebyside-wrap {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+    font-size: 0.8125rem !important;
+    line-height: 1.35 !important;
+  }
+  .kicker-sidebyside-wrap > span:not([aria-hidden="true"]) {
+    flex: 1 1 auto !important;
+    white-space: normal !important;
+  }
+  .kicker-sidebyside-wrap > span[aria-hidden="true"] {
+    flex-shrink: 0 !important;
+  }
+
+  /* Afia Efere: The Pounded Yam Blessing on one row, not extending to two lines */
+  .story-title-afia {
+    font-size: clamp(0.98rem, 4.4vw, 1.25rem) !important;
+    white-space: nowrap !important;
+  }
+
+  /* The Spice Council of Calabar Pepper Soup on one row, not extending to two lines */
+  .story-title-spice {
+    font-size: clamp(0.92rem, 4.1vw, 1.25rem) !important;
+    white-space: nowrap !important;
+  }
+
+  /* Send an Enquiry or Pot Request on one line */
+  .contact-heading-oneline {
+    font-size: clamp(1rem, 4.5vw, 1.25rem) !important;
+    white-space: nowrap !important;
   }
 }
 

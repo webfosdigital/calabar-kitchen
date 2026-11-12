@@ -21,7 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Pure Vanilla CSS3 Stylesheet -->
-    <link rel="stylesheet" href="./css/style.css?v=2.1.0" />
+    <link rel="stylesheet" href="./css/style.css?v=2.4.0" />
 
     <!-- Pure Vanilla JavaScript ES6+ -->
     <script type="module" src="./js/script.js"></script>
@@ -154,7 +154,7 @@
       <section id="daily-pots" class="daily-pots-section">
         <div class="container">
           <div style="max-width: 48rem; margin-bottom: 3rem;">
-            <div class="section-kicker">
+            <div class="section-kicker kicker-nowrap-mobile kicker-daily-pots">
               <span>Daily Kitchen Pots</span>
               <span aria-hidden="true">·</span>
               <span style="color: #6C6357;">Prepared Fresh Each Morning</span>
@@ -186,15 +186,16 @@
         <div class="container">
           <div class="menu-header-row">
             <div>
-              <div class="section-kicker">
+              <div class="section-kicker kicker-nowrap-mobile kicker-menu">
                 <span>Authentic Recipes</span>
                 <span aria-hidden="true">·</span>
                 <span>Prepared Per Order</span>
               </div>
-              <h2 class="section-title">Our Cross River Kitchen Menu</h2>
+              <h2 class="section-title menu-title-nowrap">Our Cross River Kitchen Menu</h2>
               <p class="section-desc">
                 Cooked with unadulterated Cross River ingredients, traditional clay-pot techniques, and generous portions of native meats and river catches.
               </p>
+            </div>
           </div>
 
           <!-- Category Filter Tabs -->
@@ -218,7 +219,7 @@
       <section id="heritage" class="heritage-section">
         <div class="container">
           <div style="max-width: 48rem; margin-bottom: 3.5rem;">
-            <div class="section-kicker" style="color: #D97434;">
+            <div class="section-kicker kicker-sidebyside-wrap" style="color: #D97434;">
               <span>Ancestral Cross River Tradition</span>
               <span aria-hidden="true" style="color: #6E645A;">·</span>
               <span style="color: #B5ACA2;">Calabar Hospitality in Rivers State</span>
@@ -249,7 +250,7 @@
               <div class="story-item">
                 <div class="story-title-row">
                   <span class="story-number">02.</span>
-                  <h3 class="story-title">Afia Efere: The Pounded Yam Blessing</h3>
+                  <h3 class="story-title story-title-afia">Afia Efere: The Pounded Yam Blessing</h3>
                 </div>
                 <p class="story-subtitle">Aromatic White Soup Without Palm Oil</p>
                 <p class="story-text">
@@ -260,7 +261,7 @@
               <div class="story-item">
                 <div class="story-title-row">
                   <span class="story-number">03.</span>
-                  <h3 class="story-title">The Spice Council of Calabar Pepper Soup</h3>
+                  <h3 class="story-title story-title-spice">The Spice Council of Calabar Pepper Soup</h3>
                 </div>
                 <p class="story-subtitle">Medicinal Warming Broths</p>
                 <p class="story-text">
@@ -321,12 +322,15 @@
             
             <!-- Left Info Column -->
             <div>
-              <div class="section-kicker">
+              <div class="section-kicker kicker-nowrap-mobile kicker-table-booking">
                 <span>Table & Event Booking</span>
                 <span aria-hidden="true">·</span>
                 <span>41 & 42 Ikwerre Road</span>
               </div>
-              <h2 class="section-title">Reserve Your Table for an Unhurried Calabar Feast</h2>
+              <h2 class="section-title reservation-title-tworows">
+                <span class="heading-row">Reserve Your Table for an</span>
+                <span class="heading-row">Unhurried Calabar Feast</span>
+              </h2>
               <p class="section-desc">
                 Whether you are dining with colleagues over steaming pepper soup, hosting an executive lunch in Port Harcourt, or sharing a Sunday pot of Afang with family, you can submit a table request in advance. Our dining room team will review your request and confirm availability.
               </p>
@@ -370,7 +374,7 @@
               <div id="reservation-card-container" class="reservation-form-card">
                 <form id="table-reservation-form" onsubmit="window.CalabarApp.handleReservationSubmit(event)" style="display: flex; flex-direction: column; gap: 1.25rem;">
                   <div style="padding-bottom: 0.75rem; border-bottom: 1px solid #ECE6DB;">
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Online Table Reservation Form</h3>
+                    <h3 class="online-res-title" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Online Table Reservation Form</h3>
                     <p style="font-size: 0.875rem; color: #7A7064; margin-top: 4px; line-height: 1.5;">No prepayment required. Submitting a request does not automatically reserve a table; our dining room confirms bookings upon reviewing availability.</p>
                   </div>
 
@@ -462,7 +466,7 @@
       <section class="testimonials-section">
         <div class="container">
           <div style="max-width: 42rem; margin-bottom: 3rem;">
-            <div class="section-kicker">
+            <div class="section-kicker kicker-sidebyside-wrap">
               <span>Diner Experiences</span>
               <span aria-hidden="true">·</span>
               <span>Voices from Port Harcourt</span>
@@ -631,7 +635,7 @@
               <div id="contact-form-container" class="contact-card">
                 <form id="general-enquiry-form" onsubmit="window.CalabarApp.handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 1rem;">
                   <div style="padding-bottom: 0.75rem; border-bottom: 1px solid #ECE6DB;">
-                    <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Send an Enquiry or Pot Request</h3>
+                    <h3 class="contact-heading-oneline" style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;">Send an Enquiry or Pot Request</h3>
                     <p style="font-size: 0.875rem; color: #7A7064; margin-top: 4px; line-height: 1.5;">Need custom party pots, event catering, or have feedback? Let us know.</p>
                   </div>
 
