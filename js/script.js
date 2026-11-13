@@ -10,7 +10,7 @@
   // 1. RESTAURANT DATA & PROFILE
   const RESTAURANT_PROFILE = {
     name: 'Calabar Kitchen',
-    nativeTagline: 'Udia Efik Ye Calabar',
+    tagline: 'Cross River Native Cuisine',
     address: '41 & 42 Ikwerre Road, Port Harcourt, Rivers State, Nigeria',
     shortAddress: '41 & 42 Ikwerre Road, Port Harcourt',
     phone: '09016607242',
@@ -22,7 +22,7 @@
       sunday: 'Sunday: 12:00 PM – 9:00 PM',
     },
     deliveryZones: [
-      { zone: 'Ikwerre Road & Mile 1/2/3 (Instant Pickup / Near)', fee: 0 },
+      { zone: 'Ikwerre Road & Mile 1/2/3 (Pickup / Nearby)', fee: 0 },
       { zone: 'Old GRA & New GRA (Port Harcourt)', fee: 1200 },
       { zone: 'D-Line & Olu Obasanjo', fee: 1000 },
       { zone: 'Trans-Amadi Industrial Layout', fee: 1500 },
@@ -124,7 +124,7 @@
       description: 'Hearty, gelatinous cuts of slow-braised cow tail and tender cow head in an invigorating, piping hot herbal native broth with fresh utazi and habanero chilies.',
       ingredients: ['Braised Cow Tail', 'Cow Head Cuts', 'Calabash Nutmeg', 'Utazi Leaves', 'Native Herbal Infusion', 'Crushed Chili'],
       spiceLevel: 'Hot',
-      image: './assets/images/dish_cow_head_tail_1794196879407.jpg',
+      image: './assets/images/dish_cow_head_tail_fresh.jpg',
       isDailyPot: true,
     },
     {
@@ -133,7 +133,7 @@
       nativeName: 'Assorted Native Pepper Broth',
       category: 'peppersoups',
       price: 3600,
-      description: 'Generous medley of tender shaki (tripe), liver, kidney, and soft beef cuts in a steaming aromatic herbal pepper broth that restores energy and warms the soul.',
+      description: 'Generous medley of tender shaki (tripe), liver, kidney, and soft beef cuts in a steaming aromatic herbal pepper broth with bold native spice.',
       ingredients: ['Beef Tripe (Shaki)', 'Liver & Kidney', 'Tender Beef', 'Aromatic Native Spices', 'Scent Leaves'],
       spiceLevel: 'Hot',
       image: './assets/images/dish_assorted_meat_1794196880883.jpg',
@@ -214,10 +214,10 @@
       nativeName: 'Mmín Efik (Native Wine)',
       category: 'drinks',
       price: 1200,
-      description: 'Naturally sweet, unadulterated palm sap tapped at dawn from oil palm trees in Cross River groves. Served chilled in a traditional calabash cup.',
-      ingredients: ['100% Pure Natural Palm Sap'],
+      description: 'Naturally sweet, gently effervescent palm sap served chilled for dine-in and takeaway.',
+      ingredients: ['Pure Natural Palm Sap'],
       spiceLevel: 'Mild',
-      image: './assets/images/drink_palm_wine_1794194344210.jpg',
+      image: './assets/images/drink_palm_wine_fresh.jpg',
     },
     {
       id: 'calabar-zobo',
@@ -225,10 +225,10 @@
       nativeName: 'Infused Hibiscus & Cloves',
       category: 'drinks',
       price: 800,
-      description: 'Refreshing cold brew of natural roselle hibiscus petals steeped with pressed ginger, cloves, and pineapple peel for natural sweetness.',
+      description: 'Refreshing cold brew of natural roselle hibiscus petals steeped with pressed ginger, cloves, and pineapple peel.',
       ingredients: ['Hibiscus Sepals', 'Fresh Ginger', 'Cloves (Kanunfari)', 'Pineapple Essence'],
       spiceLevel: 'Mild',
-      image: './assets/images/drink_zobo_hibiscus_1794198536386.jpg',
+      image: './assets/images/drink_spiced_zobo_fresh.jpg',
     },
   ];
 
@@ -344,9 +344,9 @@
           <div>
             <div class="dish-card-image-box" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click to view full image">
               <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Traditional Cross River dish prepared fresh at Calabar Kitchen Port Harcourt" class="dish-card-img" loading="lazy">
-              ${dish.isChefSpecial ? `<span class="dish-special-tag">Chef's Native Signature</span>` : ''}
+              ${dish.isChefSpecial ? `<span class="dish-special-tag">House Signature</span>` : ''}
               <span class="dish-spice-tag">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E87A38" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--accent-brass)" stroke-width="2" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
                 ${dish.spiceLevel}
               </span>
             </div>
@@ -407,45 +407,45 @@
     if (lastCompletedOrder) {
       bodyEl.innerHTML = `
         <div style="text-align: center; padding: 2rem 0;">
-          <div style="width: 4rem; height: 4rem; background-color: rgba(34, 103, 59, 0.1); color: #22673B; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <div style="width: 4rem; height: 4rem; background-color: rgba(36, 59, 45, 0.1); color: var(--green-badge); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem;">Order Request Prepared</h3>
-          <p style="font-size: 0.875rem; color: #5C5348; margin-bottom: 1.5rem;">Your order details are ready. Please send them via WhatsApp to confirm preparation and dispatch timing.</p>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem;">Your order details are ready. Please send them via WhatsApp to confirm availability and preparation timing.</p>
           
-          <div style="background-color: #FFFFFF; border-radius: 12px; border: 1px solid #DFD7CB; padding: 1rem; text-align: left; margin-bottom: 1.5rem; font-size: 0.875rem;">
+          <div style="background-color: #FFFFFF; border-radius: 12px; border: 1px solid var(--border-card); padding: 1rem; text-align: left; margin-bottom: 1.5rem; font-size: 0.875rem;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span style="color: #6B6155;">Order Reference</span>
+              <span style="color: var(--text-muted);">Order Reference</span>
               <span style="font-family: monospace; font-weight: bold; color: var(--accent-primary);">${lastCompletedOrder.orderId}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span style="color: #6B6155;">Customer Name</span>
+              <span style="color: var(--text-muted);">Customer Name</span>
               <span style="font-weight: 500;">${escapeHtml(lastCompletedOrder.customerName || 'Customer')}</span>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-              <span style="color: #6B6155;">Total Amount</span>
+              <span style="color: var(--text-muted);">Total Amount</span>
               <span style="font-weight: bold;" class="tabular-nums">₦${lastCompletedOrder.total.toLocaleString()}</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
-              <span style="color: #6B6155;">Fulfillment</span>
-              <span style="text-transform: capitalize; font-weight: 500;">${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 Ikwerre Road'}</span>
+              <span style="color: var(--text-muted);">Fulfillment</span>
+              <span style="text-transform: capitalize; font-weight: 500;">${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 & 42 Ikwerre Road'}</span>
             </div>
-            <p style="font-size: 0.875rem; color: #7A7064; border-top: 1px solid #ECE6DB; padding-top: 0.5rem; margin-top: 0.5rem; line-height: 1.5;">
+            <p style="font-size: 0.875rem; color: var(--text-subtle); border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; margin-top: 0.5rem; line-height: 1.5;">
               Payment is settled upon delivery or pickup via Cash or Direct Bank Transfer.
             </p>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <button onclick="window.CalabarApp.dispatchWhatsAppFromCompleted()" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
+            <button type="button" onclick="window.CalabarApp.dispatchWhatsAppFromCompleted()" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem; cursor: pointer;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               <span>Send Order via WhatsApp to Confirm</span>
             </button>
-            <a href="tel:09016607242" style="width: 100%; padding: 0.625rem; border: 1px solid #D5CDC0; color: #3A322A; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B84A12" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:09016607242" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: var(--text-secondary); font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <span>Call Kitchen Directly: 09016607242</span>
             </a>
-            <button onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid #DFD7CB; color: #4A4136; font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
-              Done / Close Bag
+            <button type="button" onclick="window.CalabarApp.resetCompletedOrder()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: var(--text-secondary); font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+              Done / Close Cart
             </button>
           </div>
         </div>
@@ -457,14 +457,14 @@
     if (cart.length === 0) {
       bodyEl.innerHTML = `
         <div style="text-align: center; padding: 4rem 1rem;">
-          <div style="width: 4rem; height: 4rem; background-color: var(--bg-alt); color: #9A9083; border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+          <div style="width: 4rem; height: 4rem; background-color: var(--bg-alt); color: var(--text-subtle); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           </div>
-          <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Your order bag is empty</h3>
-          <p style="font-size: 0.75rem; color: #6C6357; max-width: 18rem; margin: 0 auto 1.5rem;">
-            Explore our freshly simmered Afang soup, authentic White soup, or spicy 404 pepper soup and add portions to your bag.
+          <h3 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; margin-bottom: 0.25rem;">Your cart is empty</h3>
+          <p style="font-size: 0.875rem; color: var(--text-muted); max-width: 18rem; margin: 0 auto 1.5rem;">
+            Explore our freshly prepared Afang soup, authentic White soup, or spicy 404 pepper soup and add portions to your cart.
           </p>
-          <button onclick="window.CalabarApp.closeCart(); window.location.hash = '#menu';" style="padding: 0.625rem 1.25rem; background-color: var(--accent-primary); color: #fff; font-size: 0.75rem; font-weight: 600; border-radius: 8px;">
+          <button type="button" onclick="window.CalabarApp.closeCart(); window.location.hash = '#menu';" style="padding: 0.625rem 1.25rem; background-color: var(--accent-primary); color: #fff; font-size: 0.875rem; font-weight: 600; border-radius: 8px;">
             Browse Menu Dishes
           </button>
         </div>
@@ -479,9 +479,9 @@
     const total = subtotal + fee;
 
     bodyEl.innerHTML = `
-      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #7A7064; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8125rem; color: var(--text-subtle); padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle); margin-bottom: 1rem;">
         <span>Selected Items (${cart.length})</span>
-        <button onclick="window.CalabarApp.clearCart()" style="color: #b91c1c; font-size: 12px; font-weight: 500;">Clear All</button>
+        <button type="button" onclick="window.CalabarApp.clearCart()" style="color: var(--accent-primary); font-size: 0.8125rem; font-weight: 600; text-decoration: underline;">Clear All</button>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
@@ -491,18 +491,18 @@
           return `
             <div class="cart-item-card">
               <div style="min-width: 0; flex: 1;">
-                <h4 style="font-size: 0.875rem; font-weight: 600; color: var(--text-main);" class="truncate">${dish.name}</h4>
-                ${item.swallow ? `<p style="font-size: 0.75rem; color: #7C3F10;" class="truncate">+ ${item.swallow}</p>` : ''}
-                <p style="font-size: 0.75rem; font-weight: 500; color: var(--text-main); margin-top: 2px;" class="tabular-nums">₦${(item.unitPrice * item.quantity).toLocaleString()}</p>
+                <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main);" class="truncate">${dish.name}</h4>
+                ${item.swallow ? `<p style="font-size: 0.8125rem; color: var(--accent-primary);" class="truncate">+ ${item.swallow}</p>` : ''}
+                <p style="font-size: 0.8125rem; font-weight: 600; color: var(--text-main); margin-top: 2px;" class="tabular-nums">₦${(item.unitPrice * item.quantity).toLocaleString()}</p>
               </div>
 
               <div style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
                 <div class="cart-stepper">
-                  <button onclick="window.CalabarApp.updateCartQty('${item.id}', -1)" aria-label="Decrease">&minus;</button>
+                  <button type="button" onclick="window.CalabarApp.updateCartQty('${item.id}', -1)" aria-label="Decrease quantity of ${escapeHtml(dish.name)}">&minus;</button>
                   <span class="cart-stepper-qty tabular-nums">${item.quantity}</span>
-                  <button onclick="window.CalabarApp.updateCartQty('${item.id}', 1)" aria-label="Increase">&plus;</button>
+                  <button type="button" onclick="window.CalabarApp.updateCartQty('${item.id}', 1)" aria-label="Increase quantity of ${escapeHtml(dish.name)}">&plus;</button>
                 </div>
-                <button onclick="window.CalabarApp.removeCartItem('${item.id}')" style="color: #9A9083; padding: 4px;" aria-label="Remove item">
+                <button type="button" onclick="window.CalabarApp.removeCartItem('${item.id}')" style="color: var(--text-subtle); padding: 4px;" aria-label="Remove ${escapeHtml(dish.name)} from cart">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
                 </button>
               </div>
@@ -513,15 +513,15 @@
 
       <!-- Fulfillment Preference Toggle -->
       <div style="margin-bottom: 1.25rem;">
-        <label style="display: block; font-size: 0.75rem; font-weight: 600; color: #3A322A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+        <label style="display: block; font-size: 0.8125rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
           Fulfillment Preference
         </label>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; background-color: var(--bg-alt); padding: 4px; border-radius: 8px;">
-          <button type="button" onclick="window.CalabarApp.setDeliveryType('delivery')" style="padding: 0.5rem; font-size: 0.75rem; font-weight: 500; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s; ${deliveryType === 'delivery' ? 'background: #fff; color: #1E1B18; box-shadow: var(--shadow-sm);' : 'color: #5C5348;'}">
+          <button type="button" onclick="window.CalabarApp.setDeliveryType('delivery')" style="padding: 0.5rem; font-size: 0.8125rem; font-weight: 500; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s; ${deliveryType === 'delivery' ? 'background: #FFFFFF; color: var(--text-main); box-shadow: var(--shadow-sm);' : 'color: var(--text-muted);'}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             <span>Dispatch Delivery</span>
           </button>
-          <button type="button" onclick="window.CalabarApp.setDeliveryType('pickup')" style="padding: 0.5rem; font-size: 0.75rem; font-weight: 500; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s; ${deliveryType === 'pickup' ? 'background: #fff; color: #1E1B18; box-shadow: var(--shadow-sm);' : 'color: #5C5348;'}">
+          <button type="button" onclick="window.CalabarApp.setDeliveryType('pickup')" style="padding: 0.5rem; font-size: 0.8125rem; font-weight: 500; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 4px; transition: all 0.2s; ${deliveryType === 'pickup' ? 'background: #FFFFFF; color: var(--text-main); box-shadow: var(--shadow-sm);' : 'color: var(--text-muted);'}">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>
             <span>Self Pickup (Free)</span>
           </button>
@@ -531,19 +531,19 @@
       <!-- Delivery / Contact Form -->
       <form id="drawer-checkout-form" onsubmit="window.CalabarApp.handleOrderSubmit(event)" style="display: flex; flex-direction: column; gap: 0.875rem;">
         <div>
-          <label style="display: block; font-size: 0.75rem; font-weight: 500; color: #4A4136; margin-bottom: 4px;">Your Full Name *</label>
-          <input type="text" id="order-cust-name" required placeholder="e.g. Kenneth Briggs" style="width: 100%; padding: 0.5rem 0.75rem; background-color: #fff; border: 1px solid #D5CDC0; border-radius: 8px; font-size: 0.75rem; color: #1E1B18; outline: none;">
+          <label for="order-cust-name" style="display: block; font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px;">Your Full Name *</label>
+          <input type="text" id="order-cust-name" required placeholder="e.g. Kenneth Briggs" style="width: 100%; padding: 0.55rem 0.75rem; background-color: #FFFFFF; border: 1px solid var(--border-card); border-radius: 8px; font-size: 0.875rem; color: var(--text-main); outline: none;">
         </div>
 
         <div>
-          <label style="display: block; font-size: 0.75rem; font-weight: 500; color: #4A4136; margin-bottom: 4px;">Phone Number (for dispatch call) *</label>
-          <input type="tel" id="order-cust-phone" required placeholder="e.g. 09016607242" style="width: 100%; padding: 0.5rem 0.75rem; background-color: #fff; border: 1px solid #D5CDC0; border-radius: 8px; font-size: 0.75rem; color: #1E1B18; outline: none;">
+          <label for="order-cust-phone" style="display: block; font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px;">Phone Number (for kitchen confirmation) *</label>
+          <input type="tel" id="order-cust-phone" required placeholder="e.g. 09016607242" style="width: 100%; padding: 0.55rem 0.75rem; background-color: #FFFFFF; border: 1px solid var(--border-card); border-radius: 8px; font-size: 0.875rem; color: var(--text-main); outline: none;">
         </div>
 
         ${deliveryType === 'delivery' ? `
           <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 500; color: #4A4136; margin-bottom: 4px;">Port Harcourt Area / Zone *</label>
-            <select id="order-zone-select" onchange="window.CalabarApp.setZone(this.value)" style="width: 100%; padding: 0.5rem 0.75rem; background-color: #fff; border: 1px solid #D5CDC0; border-radius: 8px; font-size: 0.75rem; color: #1E1B18; outline: none;">
+            <label for="order-zone-select" style="display: block; font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px;">Port Harcourt Area / Zone *</label>
+            <select id="order-zone-select" onchange="window.CalabarApp.setZone(this.value)" style="width: 100%; padding: 0.55rem 0.75rem; background-color: #FFFFFF; border: 1px solid var(--border-card); border-radius: 8px; font-size: 0.875rem; color: var(--text-main); outline: none;">
               ${RESTAURANT_PROFILE.deliveryZones.map((z, idx) => `
                 <option value="${idx}" ${idx === selectedZoneIndex ? 'selected' : ''}>
                   ${z.zone} ${z.fee > 0 ? `(+₦${z.fee.toLocaleString()})` : '(Free)'}
@@ -553,26 +553,26 @@
           </div>
 
           <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 500; color: #4A4136; margin-bottom: 4px;">Delivery Street Address & Landmark *</label>
-            <textarea id="order-cust-address" required rows="2" placeholder="e.g. Flat 4, 18 Tombia Street, New GRA, near Market Square" style="width: 100%; padding: 0.5rem 0.75rem; background-color: #fff; border: 1px solid #D5CDC0; border-radius: 8px; font-size: 0.75rem; color: #1E1B18; outline: none;"></textarea>
+            <label for="order-cust-address" style="display: block; font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px;">Delivery Street Address &amp; Landmark *</label>
+            <textarea id="order-cust-address" required rows="2" placeholder="e.g. Flat 4, 18 Tombia Street, New GRA, near Market Square" style="width: 100%; padding: 0.55rem 0.75rem; background-color: #FFFFFF; border: 1px solid var(--border-card); border-radius: 8px; font-size: 0.875rem; color: var(--text-main); outline: none;"></textarea>
           </div>
         ` : `
-          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5A5044;">
-            <p style="font-weight: 600; color: #1E1B18; margin-bottom: 2px;">Pickup Location:</p>
-            <p>Calabar Kitchen, 41 & 42 Ikwerre Road, Port Harcourt.</p>
-            <p style="font-size: 12px; color: #5C5348; margin-top: 4px;">Ready within 25–30 minutes after order placement.</p>
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.8125rem; color: var(--text-secondary);">
+            <p style="font-weight: 600; color: var(--text-main); margin-bottom: 2px;">Pickup Location:</p>
+            <p>Calabar Kitchen, 41 &amp; 42 Ikwerre Road, Port Harcourt.</p>
+            <p style="font-size: 0.8125rem; color: var(--text-muted); margin-top: 4px;">Pickup readiness will be confirmed by our kitchen via WhatsApp or phone.</p>
           </div>
         `}
 
         <div>
-          <label style="display: block; font-size: 0.75rem; font-weight: 500; color: #4A4136; margin-bottom: 4px;">Preparation Notes (Optional)</label>
-          <input type="text" id="order-cust-notes" placeholder="e.g. Extra hot pepper in the 404, or pack swallow separately." style="width: 100%; padding: 0.5rem 0.75rem; background-color: #fff; border: 1px solid #D5CDC0; border-radius: 8px; font-size: 0.75rem; color: #1E1B18; outline: none;">
+          <label for="order-cust-notes" style="display: block; font-size: 0.8125rem; font-weight: 500; color: var(--text-secondary); margin-bottom: 4px;">Preparation Notes (Optional)</label>
+          <input type="text" id="order-cust-notes" placeholder="e.g. Extra hot pepper in the 404, or pack swallow separately." style="width: 100%; padding: 0.55rem 0.75rem; background-color: #FFFFFF; border: 1px solid var(--border-card); border-radius: 8px; font-size: 0.875rem; color: var(--text-main); outline: none;">
         </div>
       </form>
     `;
 
     footerEl.innerHTML = `
-      <div style="display: flex; flex-direction: column; gap: 0.375rem; font-size: 0.75rem; color: #6B6155; margin-bottom: 1rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.375rem; font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 1rem;">
         <div style="display: flex; justify-content: space-between;">
           <span>Food Items Subtotal</span>
           <span style="font-weight: 500; color: var(--text-main);" class="tabular-nums">₦${subtotal.toLocaleString()}</span>
@@ -583,18 +583,18 @@
             <span style="font-weight: 500; color: var(--text-main);" class="tabular-nums">₦${fee.toLocaleString()}</span>
           </div>
         ` : ''}
-        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; font-weight: bold; color: var(--text-main); border-top: 1px solid #ECE6DB; padding-top: 0.5rem; margin-top: 0.25rem;">
+        <div style="display: flex; justify-content: space-between; font-size: 0.9375rem; font-weight: bold; color: var(--text-main); border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; margin-top: 0.25rem;">
           <span>Total Amount</span>
           <span style="color: var(--accent-primary);" class="tabular-nums">₦${total.toLocaleString()}</span>
         </div>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-        <button type="submit" form="drawer-checkout-form" style="width: 100%; padding: 0.875rem; background-color: var(--accent-primary); color: #fff; font-weight: 500; border-radius: 8px; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: var(--shadow-sm); cursor: pointer;">
+        <button type="submit" form="drawer-checkout-form" style="width: 100%; padding: 0.875rem; background-color: var(--accent-primary); color: #FFFFFF; font-weight: 500; border-radius: 8px; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: var(--shadow-sm); cursor: pointer;">
           <span>Confirm Order (Pay on Delivery/Transfer)</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </button>
-        <button type="button" onclick="window.CalabarApp.dispatchWhatsAppDirect()" style="width: 100%; padding: 0.625rem; background-color: var(--green-badge); color: #fff; font-weight: 600; border-radius: 8px; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.375rem; cursor: pointer;">
+        <button type="button" onclick="window.CalabarApp.dispatchWhatsAppDirect()" style="width: 100%; padding: 0.6875rem; background-color: var(--green-badge); color: #FFFFFF; font-weight: 600; border-radius: 8px; font-size: 0.8125rem; display: flex; align-items: center; justify-content: center; gap: 0.375rem; cursor: pointer;">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <span>Order Directly via WhatsApp</span>
         </button>
@@ -621,12 +621,12 @@
     content.innerHTML = `
       <div style="position: relative; height: 14rem; background-color: var(--bg-alt); flex-shrink: 0; cursor: pointer;" onclick="window.CalabarApp.openImageLightbox('${dish.image}', '${escapeHtml(dish.name)}', '₦${dish.price.toLocaleString()} — ${escapeHtml(dish.description)}')" title="Click for full photo view">
         <img src="${dish.image}" alt="${escapeHtml(dish.name)} - Calabar Kitchen Port Harcourt" style="width: 100%; height: 100%; object-fit: cover;">
-        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 1.5rem;">
+        <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(33,28,24,0.78) 0%, rgba(33,28,24,0.22) 60%, transparent 100%); display: flex; align-items: flex-end; padding: 1.5rem;">
           <div>
-            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #E8C4A2; font-weight: 600;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brass-light); font-weight: 600;">
               ${dish.nativeName || 'Calabar Native Specialty'}
             </span>
-            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: #fff; margin-top: 2px;">
+            <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: #FFFFFF; margin-top: 2px;">
               ${dish.name}
             </h3>
           </div>
@@ -634,28 +634,28 @@
       </div>
 
       <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
-        <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.75rem; border-bottom: 1px solid #F0EBE2;">
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="font-size: 0.75rem; padding: 2px 8px; border-radius: 6px; background-color: var(--bg-pill); color: var(--accent-primary); font-weight: 500; border: 1px solid #F2DECE; display: flex; align-items: center; gap: 4px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle); gap: 0.5rem; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span style="font-size: 0.75rem; padding: 3px 8px; border-radius: 6px; background-color: var(--bg-pill); color: var(--accent-primary); font-weight: 600; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 4px;">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
               ${dish.spiceLevel} Spice
             </span>
-            <span style="font-size: 0.8125rem; color: #5C5348; background-color: var(--bg-alt); padding: 3px 8px; border-radius: 6px; font-weight: 500;">Availability confirmed upon order</span>
+            <span style="font-size: 0.8125rem; color: var(--text-muted); background-color: var(--bg-alt); padding: 3px 8px; border-radius: 6px; font-weight: 500;">Prepared fresh daily</span>
           </div>
           <span style="font-family: var(--font-display); font-size: 1.5rem; font-weight: bold; color: var(--text-main);" class="tabular-nums">
             ₦${dish.price.toLocaleString()}
           </span>
         </div>
 
-        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">${dish.description}</p>
+        <p style="font-size: 0.9375rem; color: var(--text-muted); line-height: 1.6;">${dish.description}</p>
 
         <div>
-          <h4 style="font-size: 0.75rem; font-weight: 600; color: #3A322A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+          <h4 style="font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
             Authentic Ingredients
           </h4>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
             ${dish.ingredients.map((ing) => `
-              <span style="font-size: 0.75rem; padding: 4px 10px; background-color: var(--bg-canvas); color: var(--text-muted); border: 1px solid var(--border-subtle); border-radius: 6px; font-weight: 500;">
+              <span style="font-size: 0.8125rem; padding: 4px 10px; background-color: var(--bg-canvas); color: var(--text-secondary); border: 1px solid var(--border-subtle); border-radius: 6px; font-weight: 500;">
                 ${ing}
               </span>
             `).join('')}
@@ -664,12 +664,12 @@
 
         ${isSoup ? `
           <div>
-            <label style="display: block; font-size: 0.75rem; font-weight: 600; color: #3A322A; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
+            <label style="display: block; font-size: 0.75rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">
               Choose Traditional Swallow Accompaniment
             </label>
             <div id="modal-swallow-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
               ${swallowOptions.map((opt) => `
-                <button type="button" onclick="window.CalabarApp.selectModalSwallow('${opt}')" class="modal-swallow-opt" data-opt="${opt}" style="padding: 0.5rem; font-size: 0.75rem; font-weight: 500; border-radius: 8px; border: 1px solid ${opt === selectedModalSwallow ? 'var(--accent-primary)' : 'var(--border-card)'}; background-color: ${opt === selectedModalSwallow ? 'var(--bg-pill)' : 'var(--bg-canvas)'}; color: ${opt === selectedModalSwallow ? 'var(--accent-primary)' : 'var(--text-muted)'}; cursor: pointer; text-align: center;">
+                <button type="button" onclick="window.CalabarApp.selectModalSwallow('${opt}')" class="modal-swallow-opt" data-opt="${opt}" style="padding: 0.5rem; font-size: 0.8125rem; font-weight: 500; border-radius: 8px; border: 1px solid ${opt === selectedModalSwallow ? 'var(--accent-primary)' : 'var(--border-card)'}; background-color: ${opt === selectedModalSwallow ? 'var(--bg-pill)' : 'var(--bg-canvas)'}; color: ${opt === selectedModalSwallow ? 'var(--accent-primary)' : 'var(--text-muted)'}; cursor: pointer; text-align: center;">
                   ${opt}
                 </button>
               `).join('')}
@@ -677,12 +677,12 @@
           </div>
         ` : ''}
 
-        <div style="padding-top: 0.75rem; border-top: 1px solid #F0EBE2; display: flex; flex-direction: column; gap: 0.5rem;">
-          <button id="modal-add-btn" onclick="window.CalabarApp.addFromModal()" style="width: 100%; padding: 0.75rem; font-size: 0.875rem; font-weight: 600; border-radius: 8px; background-color: var(--accent-primary); color: #fff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: var(--shadow-sm); cursor: pointer;">
+        <div style="padding-top: 0.75rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 0.5rem;">
+          <button type="button" id="modal-add-btn" onclick="window.CalabarApp.addFromModal()" style="width: 100%; padding: 0.8125rem; font-size: 0.9375rem; font-weight: 600; border-radius: 8px; background-color: var(--accent-primary); color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: var(--shadow-sm); cursor: pointer;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            <span>Add to Order — ₦${dish.price.toLocaleString()}</span>
+            <span>Add to Cart — ₦${dish.price.toLocaleString()}</span>
           </button>
-          <a href="https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${encodeURIComponent("Hello Calabar Kitchen, I would like to enquire about ordering " + dish.name + " (₦" + dish.price.toLocaleString() + "). Is it currently available?")}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.625rem; font-size: 0.8125rem; font-weight: 600; border-radius: 8px; background-color: var(--green-badge); color: #fff; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; cursor: pointer;">
+          <a href="https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${encodeURIComponent("Hello Calabar Kitchen, I would like to enquire about ordering " + dish.name + " (₦" + dish.price.toLocaleString() + "). Is it currently available?")}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.6875rem; font-size: 0.875rem; font-weight: 600; border-radius: 8px; background-color: var(--green-badge); color: #FFFFFF; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; cursor: pointer;">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             <span>Enquire About This Dish via WhatsApp</span>
           </a>
@@ -723,7 +723,7 @@
       btn.style.backgroundColor = 'var(--green-badge)';
       btn.innerHTML = `
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Added to Bag!</span>
+        <span>Added to Cart!</span>
       `;
     }
 
@@ -743,22 +743,22 @@
       titleEl.textContent = 'Privacy Policy';
       bodyEl.innerHTML = `
         <p>At <strong>${RESTAURANT_PROFILE.name}</strong> (located at ${RESTAURANT_PROFILE.address}), we take the privacy of our diners and patrons seriously.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">1. Information We Collect</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">1. Information We Collect</h4>
         <p>We collect your contact name, phone number, delivery address in Port Harcourt, and dietary preferences when you place an order, make a table reservation, or send an enquiry.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">2. How Your Information is Used</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">2. How Your Information is Used</h4>
         <p>Your phone number is used exclusively by our dispatch riders and kitchen staff to confirm order delivery status or table reservations. We do not sell, rent, or distribute your personal details to third parties.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">3. Direct Communications</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">3. Direct Communications</h4>
         <p>If you choose to contact us via WhatsApp or phone at ${RESTAURANT_PROFILE.phoneFormatted}, messages are handled strictly for customer service and meal fulfillment.</p>
       `;
     } else {
       titleEl.textContent = 'Terms of Service';
       bodyEl.innerHTML = `
         <p>Welcome to <strong>${RESTAURANT_PROFILE.name}</strong>. By making a reservation or placing an order through this website, you agree to these operational terms.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">1. Fresh Daily Preparations</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">1. Fresh Daily Preparations</h4>
         <p>Because our native Cross River soups (Afang, White soup, Edikang Ikong) and pepper soups are prepared daily using authentic wild herbs and fresh ingredients, all orders are subject to fresh pot availability.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">2. Delivery and Self-Pickup</h4>
-        <p>Dispatch delivery is provided throughout Port Harcourt (GRA, D-Line, Trans-Amadi, Mile 1/2/3, Choba, Peter Odili). Dispatch fees reflect distance and road logistics. Self-pickup is always complimentary at 41 & 42 Ikwerre Road.</p>
-        <h4 style="font-size: 0.875rem; font-weight: 600; color: #1E1B18; margin-top: 0.75rem;">3. Payments</h4>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">2. Delivery and Self-Pickup</h4>
+        <p>Dispatch delivery is provided throughout Port Harcourt (GRA, D-Line, Trans-Amadi, Mile 1/2/3, Choba, Peter Odili). Dispatch fees reflect distance and road logistics. Self-pickup is always complimentary at 41 &amp; 42 Ikwerre Road.</p>
+        <h4 style="font-size: 0.9375rem; font-weight: 600; color: var(--text-main); margin-top: 0.75rem;">3. Payments</h4>
         <p>Payment for orders may be settled upon delivery or pickup via Cash on Delivery or verified Direct Bank Transfer.</p>
       `;
     }
@@ -979,15 +979,15 @@
       `Order Ref: ${lastCompletedOrder.orderId}\n` +
       `Customer Name: ${lastCompletedOrder.customerName || 'Customer'}\n` +
       `Phone: ${lastCompletedOrder.customerPhone || 'Not provided'}\n` +
-      `Fulfillment: ${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 Ikwerre Road'}\n` +
+      `Fulfillment: ${lastCompletedOrder.deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 & 42 Ikwerre Road'}\n` +
       (lastCompletedOrder.deliveryType === 'delivery' ? `Destination: ${lastCompletedOrder.deliveryAddress} (${lastCompletedOrder.zoneName})\n` : '') +
       (lastCompletedOrder.notes ? `Special Notes: ${lastCompletedOrder.notes}\n` : '') +
       `\nItems:\n${itemsSummary}\n\n` +
       `TOTAL AMOUNT: ₦${lastCompletedOrder.total.toLocaleString()}\n\n` +
-      `Please confirm receipt and dispatch timing.`
+      `Please confirm receipt and preparation timing.`
     );
 
-    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank', 'noopener,noreferrer');
   }
 
   function dispatchWhatsAppDirect() {
@@ -1013,7 +1013,7 @@
       `Order Ref: ${orderId}\n` +
       `Customer Name: ${nameInput && nameInput.value ? nameInput.value : 'Customer'}\n` +
       `Phone: ${phoneInput && phoneInput.value ? phoneInput.value : 'Not provided'}\n` +
-      `Fulfillment: ${deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 Ikwerre Road'}\n` +
+      `Fulfillment: ${deliveryType === 'delivery' ? 'Dispatch Delivery' : 'Self Pickup at 41 & 42 Ikwerre Road'}\n` +
       (deliveryType === 'delivery' && addressInput && addressInput.value ? `Destination: ${addressInput.value} (${RESTAURANT_PROFILE.deliveryZones[selectedZoneIndex]?.zone})\n` : '') +
       (notesInput && notesInput.value ? `Notes: ${notesInput.value}\n` : '') +
       `\nItems Ordered:\n${itemsSummary}\n\n` +
@@ -1023,7 +1023,7 @@
       `Please confirm preparation.`
     );
 
-    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank', 'noopener,noreferrer');
   }
 
   // 6. FORM HANDLERS (RESERVATION & CONTACT)
@@ -1090,78 +1090,71 @@
       `Requested Date: ${date}\n` +
       `Requested Time: ${time}\n` +
       `Number of Guests: ${guests} Guests\n` +
-      `Seating Area: ${selectedResZone}\n` +
+      `Seating Preference: ${selectedResZone}\n` +
       (notes ? `Special Notes: ${notes}\n` : '') +
       `\nPlease let me know if this table can be confirmed. Thank you!`
     );
     const whatsappUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${whatsappMsg}`;
-
-    // Attempt automatic popup transmission
-    try {
-      window.open(whatsappUrl, '_blank');
-    } catch (err) {
-      // Browser popup blocker fallback handled below
-    }
 
     const container = document.getElementById('reservation-card-container');
     if (!container) return;
 
     container.innerHTML = `
       <div style="padding: 1.5rem 0;">
-        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(184, 74, 18, 0.1); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <div style="width: 3.5rem; height: 3.5rem; background-color: var(--accent-glow); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
         <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 0.375rem;">Your Reservation Request is Ready</h3>
-        <p style="font-size: 0.875rem; color: #5C5348; text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
-          Please send it through WhatsApp. Your booking will be confirmed after the restaurant responds.
+        <p style="font-size: 0.875rem; color: var(--text-muted); text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
+          Please send it through WhatsApp. Your table reservation is only confirmed once the restaurant responds.
         </p>
         
         <div style="background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Reference ID</span>
+          <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Reference ID</span>
             <span style="font-family: monospace; font-weight: bold; color: var(--accent-primary);">${code}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Guest Name</span>
-            <span style="font-weight: 500;">${escapeHtml(name)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Guest Name</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(name)}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Phone Number</span>
-            <span style="font-weight: 500;">${escapeHtml(phone)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Phone Number</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(phone)}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Date & Time</span>
-            <span style="font-weight: 500;">${escapeHtml(date)} at ${escapeHtml(time)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Date &amp; Time</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(date)} at ${escapeHtml(time)}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Party Size</span>
-            <span style="font-weight: 500;">${escapeHtml(guests)} Guests</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Party Size</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(guests)} Guests</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; ${notes ? 'border-bottom: 1px solid #ECE6DB;' : ''}">
-            <span style="color: #6B6155;">Seating Area</span>
-            <span style="font-weight: 500;">${escapeHtml(selectedResZone)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; ${notes ? 'border-bottom: 1px solid var(--border-subtle);' : ''}">
+            <span style="color: var(--text-muted);">Seating Preference</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(selectedResZone)}</span>
           </div>
           ${notes ? `
             <div style="padding-top: 0.5rem;">
-              <span style="color: #6B6155; display: block; margin-bottom: 2px;">Special Notes / Dishes</span>
+              <span style="color: var(--text-muted); display: block; margin-bottom: 2px;">Special Notes / Dishes</span>
               <span style="font-weight: 500; color: var(--text-main); font-size: 0.8125rem;">${escapeHtml(notes)}</span>
             </div>
           ` : ''}
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #FFFFFF; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             <span>Send Request via WhatsApp Now</span>
           </a>
 
-          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.75rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-weight: 600; color: #1E1B18;">If WhatsApp does not open on your device:</p>
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.8125rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px;">
+            <p style="font-weight: 600; color: var(--text-main);">Prefer to call or email?</p>
             <p>Call our dining room directly: <a href="tel:09016607242" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">09016607242</a></p>
             <p>Or send an email to: <a href="mailto:calabarkitchen482@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">calabarkitchen482@gmail.com</a></p>
           </div>
 
-          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.75rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+          <button type="button" onclick="window.location.reload()" style="width: 100%; padding: 0.6875rem; border: 1px solid var(--border-card); color: var(--text-secondary); font-size: 0.8125rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
             Edit Details / Make Another Request
           </button>
         </div>
@@ -1179,11 +1172,11 @@
       `Requested Date: ${lastReservationData.date}\n` +
       `Requested Time: ${lastReservationData.time}\n` +
       `Number of Guests: ${lastReservationData.guests} Guests\n` +
-      `Seating Area: ${lastReservationData.zone}\n` +
+      `Seating Preference: ${lastReservationData.zone}\n` +
       (lastReservationData.notes ? `Special Notes: ${lastReservationData.notes}\n` : '') +
       `\nPlease let me know if this table can be confirmed. Thank you!`
     );
-    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank');
+    window.open(`https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${msg}`, '_blank', 'noopener,noreferrer');
   }
 
   function handleContactSubmit(e) {
@@ -1225,63 +1218,57 @@
     );
     const whatsappUrl = `https://wa.me/${RESTAURANT_PROFILE.whatsappNumber}?text=${whatsappMsg}`;
 
-    try {
-      window.open(whatsappUrl, '_blank');
-    } catch (err) {
-      // Popup blocked fallback
-    }
-
     const card = document.getElementById('contact-form-container');
     if (!card) return;
 
     card.innerHTML = `
       <div style="padding: 1.5rem 0;">
-        <div style="width: 3.5rem; height: 3.5rem; background-color: rgba(184, 74, 18, 0.1); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+        <div style="width: 3.5rem; height: 3.5rem; background-color: var(--accent-glow); color: var(--accent-primary); border-radius: 9999px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </div>
         <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; text-align: center; margin-bottom: 0.375rem;">Your Enquiry is Ready</h3>
-        <p style="font-size: 0.875rem; color: #5C5348; text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
+        <p style="font-size: 0.875rem; color: var(--text-muted); text-align: center; max-width: 26rem; margin: 0 auto 1.5rem; line-height: 1.5;">
           Thank you for contacting Calabar Kitchen. Your message has been prepared below. Please send it through WhatsApp; our team will review your enquiry and respond as soon as possible.
         </p>
 
         <div style="background-color: var(--bg-canvas); border-radius: 12px; border: 1px solid var(--border-card); padding: 1.25rem; text-align: left; font-size: 0.875rem; margin-bottom: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Sender Name</span>
-            <span style="font-weight: 500;">${escapeHtml(name)}</span>
+          <div style="display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Sender Name</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(name)}</span>
           </div>
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Phone Number</span>
-            <span style="font-weight: 500;">${escapeHtml(phone)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Phone Number</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(phone)}</span>
           </div>
           ${email ? `
-            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-              <span style="color: #6B6155;">Email</span>
-              <span style="font-weight: 500;">${escapeHtml(email)}</span>
+            <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+              <span style="color: var(--text-muted);">Email</span>
+              <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(email)}</span>
             </div>
           ` : ''}
-          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid #ECE6DB;">
-            <span style="color: #6B6155;">Topic</span>
-            <span style="font-weight: 500;">${escapeHtml(subject)}</span>
+          <div style="display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-subtle);">
+            <span style="color: var(--text-muted);">Topic</span>
+            <span style="font-weight: 500; color: var(--text-main);">${escapeHtml(subject)}</span>
           </div>
           <div style="padding-top: 0.5rem;">
-            <span style="color: #6B6155; display: block; margin-bottom: 2px;">Message:</span>
+            <span style="color: var(--text-muted); display: block; margin-bottom: 2px;">Message:</span>
             <p style="font-weight: 500; color: var(--text-main); font-size: 0.8125rem; line-height: 1.5;">${escapeHtml(message)}</p>
           </div>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #fff; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="width: 100%; padding: 0.875rem; background-color: var(--green-badge); color: #FFFFFF; font-size: 0.875rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             <span>Send Enquiry via WhatsApp Now</span>
           </a>
 
-          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.875rem; color: #5C5348; display: flex; flex-direction: column; gap: 4px;">
-            <p style="font-weight: 600; color: #1E1B18;">Alternative ways to reach us:</p>
+          <div style="padding: 0.75rem; background-color: var(--bg-alt); border-radius: 8px; font-size: 0.875rem; color: var(--text-muted); display: flex; flex-direction: column; gap: 4px;">
+            <p style="font-weight: 600; color: var(--text-main);">Alternative ways to reach us:</p>
             <p>Direct Call: <a href="tel:09016607242" style="font-weight: 600; color: var(--accent-primary); text-decoration: underline;">+234 901 660 7242</a></p>
             <p>Official Email: <a href="mailto:calabarkitchen482@gmail.com" style="color: var(--accent-primary); text-decoration: underline;">calabarkitchen482@gmail.com</a></p>
           </div>
 
-          <button onclick="window.location.reload()" style="width: 100%; padding: 0.625rem; border: 1px solid var(--border-card); color: #4A4136; font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
+          <button type="button" onclick="window.location.reload()" style="width: 100%; padding: 0.6875rem; border: 1px solid var(--border-card); color: var(--text-secondary); font-size: 0.875rem; font-weight: 500; border-radius: 8px; cursor: pointer;">
             Write Another Message
           </button>
         </div>
@@ -1298,6 +1285,7 @@
       const match = btn.getAttribute('data-cat') === catId;
       if (match) btn.classList.add('is-active');
       else btn.classList.remove('is-active');
+      btn.setAttribute('aria-pressed', match ? 'true' : 'false');
     });
     renderMenu();
   }
@@ -1371,13 +1359,14 @@
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Global Escape key listener to dismiss lightboxes and modals
+    // Global Escape key listener to dismiss lightboxes, modals, drawer, and mobile menu
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeImageLightbox();
         closeDishModal();
         closeLegalModal();
         closeCart();
+        toggleMobileMenu(true);
       }
     });
   });
