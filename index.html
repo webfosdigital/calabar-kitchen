@@ -3,7 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';"
+    />
     <title>Calabar Kitchen — Cross River Native Cuisine | Port Harcourt</title>
+    <link rel="canonical" href="https://webfosdigital.github.io/calabar-kitchen/" />
     <meta
       name="description"
       content="Calabar Kitchen in Port Harcourt serves authentic Cross River native dishes: Afang soup, Afia Efere (White soup), Edikang Ikong, native pepper soups, and swallows at 41 & 42 Ikwerre Road."
@@ -14,6 +20,7 @@
       content="Calabar Kitchen in Port Harcourt serves authentic Cross River native dishes: Afang soup, Afia Efere (White soup), Edikang Ikong, native pepper soups, and swallows at 41 & 42 Ikwerre Road."
     />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webfosdigital.github.io/calabar-kitchen/" />
     <meta property="og:site_name" content="Calabar Kitchen" />
     <meta property="og:image" content="./assets/images/hero_calabar_kitchen_1794102728383.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -27,6 +34,9 @@
     <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg" />
     <link rel="shortcut icon" href="./assets/images/favicon.svg" />
     <link rel="apple-touch-icon" href="./assets/images/favicon.svg" />
+
+    <!-- Preload Hero LCP Image -->
+    <link rel="preload" as="image" href="./assets/images/hero_calabar_kitchen_1794102728383.webp" type="image/webp" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,12 +86,12 @@
     <!-- Pure Vanilla JavaScript ES6+ -->
     <script type="module" src="./js/script.js"></script>
   </head>
-  <body>
+  <body id="top">
     <!-- Top Navigation (3-Zone Top Bar) -->
     <header class="site-header">
       <div class="container header-container">
         <!-- Zone 1: Brand Wordmark + Approved Tagline (>=14px everywhere) -->
-        <a href="#" class="brand-wordmark" aria-label="Calabar Kitchen — Cross River Native Cuisine">
+        <a href="#top" class="brand-wordmark" aria-label="Calabar Kitchen — Cross River Native Cuisine">
           <span class="brand-title">Calabar Kitchen</span>
           <span class="brand-subtext">Cross River Native Cuisine</span>
         </a>
@@ -100,7 +110,7 @@
           <button
             type="button"
             class="btn-primary-cart"
-            onclick="window.CalabarApp.openCart()"
+            data-action="open-cart"
             aria-label="View shopping cart"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -116,7 +126,7 @@
             type="button"
             class="hamburger-btn"
             id="mobile-menu-toggle-btn"
-            onclick="window.CalabarApp.toggleMobileMenu()"
+            data-action="toggle-mobile-menu"
             aria-label="Open navigation menu"
             aria-expanded="false"
             aria-controls="mobile-nav-sheet"
@@ -139,13 +149,13 @@
       <!-- Mobile & Tablet Navigation Drawer -->
       <div id="mobile-nav-sheet" class="mobile-nav-sheet">
         <nav class="mobile-nav-links" aria-label="Mobile navigation">
-          <a href="#menu" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Menu</a>
-          <a href="#daily-pots" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Today's Pots</a>
-          <a href="#heritage" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Heritage</a>
-          <a href="#reservation" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Reservation</a>
-          <a href="#location" class="mobile-nav-link" onclick="window.CalabarApp.toggleMobileMenu(true)">Find Us</a>
+          <a href="#menu" class="mobile-nav-link" data-action="close-mobile-menu">Menu</a>
+          <a href="#daily-pots" class="mobile-nav-link" data-action="close-mobile-menu">Today's Pots</a>
+          <a href="#heritage" class="mobile-nav-link" data-action="close-mobile-menu">Heritage</a>
+          <a href="#reservation" class="mobile-nav-link" data-action="close-mobile-menu">Reservation</a>
+          <a href="#location" class="mobile-nav-link" data-action="close-mobile-menu">Find Us</a>
           <div class="mobile-nav-actions">
-            <a href="#reservation" class="btn-mobile-book" onclick="window.CalabarApp.toggleMobileMenu(true)">Book a Table</a>
+            <a href="#reservation" class="btn-mobile-book" data-action="close-mobile-menu">Book a Table</a>
             <a href="tel:09016607242" class="btn-mobile-call">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -220,15 +230,24 @@
                 class="hero-media-wrapper"
                 role="button"
                 tabindex="0"
-                onclick="window.CalabarApp.openImageLightbox('./assets/images/hero_calabar_kitchen_1794102728383.jpg', 'Royal Afang Soup with Steaming Pounded Yam', 'Signature daily spread prepared with assorted meats, smoked fish, and river periwinkles at 41 & 42 Ikwerre Road, Port Harcourt.')"
-                onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }"
+                data-lightbox-src="./assets/images/hero_calabar_kitchen_1794102728383.jpg"
+                data-lightbox-title="Royal Afang Soup with Steaming Pounded Yam"
+                data-lightbox-desc="Signature daily spread prepared with assorted meats, smoked fish, and river periwinkles at 41 &amp; 42 Ikwerre Road, Port Harcourt."
+                aria-label="View full photo of Royal Afang Soup with Steaming Pounded Yam"
                 title="Click for full photo view"
               >
-                <img
-                  src="./assets/images/hero_calabar_kitchen_1794102728383.jpg"
-                  alt="Authentic Nigerian dining spread with Afang soup and pounded yam in clay bowls at Calabar Kitchen, Port Harcourt"
-                  class="hero-media-img"
-                />
+                <picture>
+                  <source srcset="./assets/images/hero_calabar_kitchen_1794102728383.webp" type="image/webp" />
+                  <img
+                    src="./assets/images/hero_calabar_kitchen_1794102728383.jpg"
+                    alt="Authentic Nigerian dining spread with Afang soup and pounded yam in clay bowls at Calabar Kitchen, Port Harcourt"
+                    class="hero-media-img"
+                    width="1200"
+                    height="670"
+                    fetchpriority="high"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="hero-media-overlay">
                   <span class="media-kicker">Signature Daily Spread</span>
                   <p class="media-title">Royal Afang Soup with Steaming Pounded Yam</p>
@@ -297,12 +316,12 @@
 
           <!-- Category Filter Tabs (All visible cleanly on mobile & desktop) -->
           <div class="categories-tabs" role="group" aria-label="Filter menu dishes by category">
-            <button type="button" class="cat-btn is-active" data-cat="all" aria-pressed="true" onclick="window.CalabarApp.filterCategory('all')">Complete Menu</button>
-            <button type="button" class="cat-btn" data-cat="soups" aria-pressed="false" onclick="window.CalabarApp.filterCategory('soups')">Native Soups</button>
-            <button type="button" class="cat-btn" data-cat="peppersoups" aria-pressed="false" onclick="window.CalabarApp.filterCategory('peppersoups')">Pepper Soups ("404" &amp; Meats)</button>
-            <button type="button" class="cat-btn" data-cat="swallows" aria-pressed="false" onclick="window.CalabarApp.filterCategory('swallows')">Traditional Swallows</button>
-            <button type="button" class="cat-btn" data-cat="rice" aria-pressed="false" onclick="window.CalabarApp.filterCategory('rice')">Rice &amp; Specialties</button>
-            <button type="button" class="cat-btn" data-cat="drinks" aria-pressed="false" onclick="window.CalabarApp.filterCategory('drinks')">Palm Wine &amp; Native Drinks</button>
+            <button type="button" class="cat-btn is-active" data-cat="all" aria-pressed="true">Complete Menu</button>
+            <button type="button" class="cat-btn" data-cat="soups" aria-pressed="false">Native Soups</button>
+            <button type="button" class="cat-btn" data-cat="peppersoups" aria-pressed="false">Pepper Soups ("404" &amp; Meats)</button>
+            <button type="button" class="cat-btn" data-cat="swallows" aria-pressed="false">Traditional Swallows</button>
+            <button type="button" class="cat-btn" data-cat="rice" aria-pressed="false">Rice &amp; Specialties</button>
+            <button type="button" class="cat-btn" data-cat="drinks" aria-pressed="false">Palm Wine &amp; Native Drinks</button>
           </div>
 
           <!-- Dishes Grid -->
@@ -372,16 +391,24 @@
                 class="heritage-media-box"
                 role="button"
                 tabindex="0"
-                onclick="window.CalabarApp.openImageLightbox('./assets/images/heritage_calabar_ingredients.jpg', 'Authentic Native Botanicals & Forest Harvests', 'Wild ukazi leaves, river periwinkles (mfi), native uyayak pods, and pure palm oil prepared in traditional earthenware at Calabar Kitchen.')"
-                onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }"
+                data-lightbox-src="./assets/images/heritage_calabar_ingredients.jpg"
+                data-lightbox-title="Authentic Native Botanicals &amp; Forest Harvests"
+                data-lightbox-desc="Wild ukazi leaves, river periwinkles (mfi), native uyayak pods, and pure palm oil prepared in traditional earthenware at Calabar Kitchen."
+                aria-label="View full photo of Authentic Native Botanicals and Forest Harvests"
                 title="Click to view full image"
               >
-                <img
-                  src="./assets/images/heritage_calabar_ingredients.jpg"
-                  alt="Authentic Cross River native ingredients: wild ukazi leaves, river periwinkles, uyayak pods, and crayfish at Calabar Kitchen"
-                  class="heritage-img heritage-img-tall"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcset="./assets/images/heritage_calabar_ingredients.webp" type="image/webp" />
+                  <img
+                    src="./assets/images/heritage_calabar_ingredients.jpg"
+                    alt="Authentic Cross River native ingredients: wild ukazi leaves, river periwinkles, uyayak pods, and crayfish at Calabar Kitchen"
+                    class="heritage-img heritage-img-tall"
+                    width="800"
+                    height="597"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="heritage-media-caption">
                   <span class="heritage-caption-kicker">Ancestral Ingredients</span>
                   <p class="heritage-caption-title">Forest Harvests &amp; River Delicacies</p>
@@ -395,16 +422,24 @@
                 class="heritage-media-box"
                 role="button"
                 tabindex="0"
-                onclick="window.CalabarApp.openImageLightbox('./assets/images/ambiance_african_fine_dining.jpg', 'Contemporary African Dining Atmosphere', 'Warm timber, handcrafted terracotta pottery, and intimate dining tables on Ikwerre Road, Port Harcourt.')"
-                onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); this.click(); }"
+                data-lightbox-src="./assets/images/ambiance_african_fine_dining.jpg"
+                data-lightbox-title="Contemporary African Dining Atmosphere"
+                data-lightbox-desc="Warm timber, handcrafted terracotta pottery, and intimate dining tables on Ikwerre Road, Port Harcourt."
+                aria-label="View full photo of Contemporary African Dining Atmosphere"
                 title="Click to view full image"
               >
-                <img
-                  src="./assets/images/ambiance_african_fine_dining.jpg"
-                  alt="Contemporary African fine dining atmosphere inspired by Calabar Kitchen hospitality"
-                  class="heritage-img heritage-img-wide"
-                  loading="lazy"
-                />
+                <picture>
+                  <source srcset="./assets/images/ambiance_african_fine_dining.webp" type="image/webp" />
+                  <img
+                    src="./assets/images/ambiance_african_fine_dining.jpg"
+                    alt="Contemporary African fine dining atmosphere inspired by Calabar Kitchen hospitality"
+                    class="heritage-img heritage-img-wide"
+                    width="1200"
+                    height="670"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
                 <div class="heritage-media-caption">
                   <span class="heritage-caption-kicker heritage-caption-kicker-brass">Dining Room &amp; Hospitality</span>
                   <p class="heritage-caption-title heritage-caption-title-sm">Warm Wood, Terracotta &amp; Unhurried Hospitality</p>
@@ -416,19 +451,19 @@
           <!-- 4 Cultural Botanical Pillars -->
           <div class="heritage-pillars-row">
             <div class="pillar-card">
-              <h4 class="pillar-card-title">Wild Ukazi (Afang)</h4>
+              <h3 class="pillar-card-title">Wild Ukazi (Afang)</h3>
               <p class="pillar-card-desc">Sliced into fine ribbons and pounded to bring out the signature texture and rich leafy depth of true Afang.</p>
             </div>
             <div class="pillar-card">
-              <h4 class="pillar-card-title">Uyayak Pods</h4>
+              <h3 class="pillar-card-title">Uyayak Pods</h3>
               <p class="pillar-card-desc">Gently toasted over heat before simmering into White Soup, imparting an unmistakable warm, woody aroma.</p>
             </div>
             <div class="pillar-card">
-              <h4 class="pillar-card-title">River Periwinkles (Mfi)</h4>
+              <h3 class="pillar-card-title">River Periwinkles (Mfi)</h3>
               <p class="pillar-card-desc">Carefully washed and prepared native periwinkles adding rich coastal savoriness to every spoonful.</p>
             </div>
             <div class="pillar-card">
-              <h4 class="pillar-card-title">Pure Palm Wine</h4>
+              <h3 class="pillar-card-title">Pure Palm Wine</h3>
               <p class="pillar-card-desc">Chilled, naturally sweet palm sap — a classic table companion to spiced Calabar pepper soup.</p>
             </div>
           </div>
@@ -503,7 +538,7 @@
             <!-- Right Interactive Form Card -->
             <div>
               <div id="reservation-card-container" class="reservation-form-card">
-                <form id="table-reservation-form" onsubmit="window.CalabarApp.handleReservationSubmit(event)" class="editorial-form">
+                <form id="table-reservation-form" class="editorial-form" novalidate>
                   <div class="form-card-header">
                     <h3 class="online-res-title">Online Table Reservation Form</h3>
                     <p class="form-card-note">
@@ -565,13 +600,13 @@
                   <div>
                     <label id="res-seating-label" class="form-label">Seating Preference (Subject to Availability)</label>
                     <div class="seating-zones-grid" role="group" aria-labelledby="res-seating-label">
-                      <button type="button" class="zone-selector-btn is-selected" data-zone="Main Dining Room" onclick="window.CalabarApp.selectResZone('Main Dining Room')">
+                      <button type="button" class="zone-selector-btn is-selected" data-zone="Main Dining Room">
                         Main Dining Room
                       </button>
-                      <button type="button" class="zone-selector-btn" data-zone="Quiet Corner Table" onclick="window.CalabarApp.selectResZone('Quiet Corner Table')">
+                      <button type="button" class="zone-selector-btn" data-zone="Quiet Corner Table">
                         Quiet Corner Table
                       </button>
-                      <button type="button" class="zone-selector-btn" data-zone="Group Table" onclick="window.CalabarApp.selectResZone('Group Table')">
+                      <button type="button" class="zone-selector-btn" data-zone="Group Table">
                         Group Table
                       </button>
                     </div>
@@ -582,6 +617,8 @@
                     <label for="res-notes" class="form-label">Special Dietary Notes or Dish Requests (Optional)</label>
                     <textarea id="res-notes" rows="2" placeholder="e.g. Please let me know if Afia Efere is available for lunch." class="form-input"></textarea>
                   </div>
+
+                  <p id="res-form-error" class="form-error-msg" role="alert" hidden></p>
 
                   <button type="submit" class="btn-form-submit">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -701,7 +738,7 @@
 
                 <div class="contact-card-actions">
                   <a
-                    href="https://maps.google.com/?q=41+Ikwerre+Road+Port+Harcourt"
+                    href="https://maps.google.com/?q=41+%26+42+Ikwerre+Road+Port+Harcourt"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="btn-maps"
@@ -774,7 +811,7 @@
             <!-- Right Interactive Form -->
             <div>
               <div id="contact-form-container" class="contact-card">
-                <form id="general-enquiry-form" onsubmit="window.CalabarApp.handleContactSubmit(event)" class="editorial-form">
+                <form id="general-enquiry-form" class="editorial-form" novalidate>
                   <div class="form-card-header">
                     <h3 class="contact-heading-oneline">Send an Enquiry or Pot Request</h3>
                     <p class="form-card-note">
@@ -815,6 +852,8 @@
                     <textarea id="contact-msg" required rows="4" placeholder="Please let us know how we can assist you..." class="form-input"></textarea>
                   </div>
 
+                  <p id="contact-form-error" class="form-error-msg" role="alert" hidden></p>
+
                   <button type="submit" class="btn-form-submit">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                       <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
@@ -852,7 +891,7 @@
 
           <!-- Col 2: Navigation Links -->
           <div>
-            <h4 class="footer-heading">Explore Our Kitchen</h4>
+            <h3 class="footer-heading">Explore Our Kitchen</h3>
             <ul class="footer-list">
               <li><a href="#menu">Traditional Native Menu</a></li>
               <li><a href="#daily-pots">Daily Kitchen Pots &amp; Availability</a></li>
@@ -864,7 +903,7 @@
 
           <!-- Col 3: Native Specialties -->
           <div>
-            <h4 class="footer-heading">Native Specialties</h4>
+            <h3 class="footer-heading">Native Specialties</h3>
             <ul class="footer-list">
               <li>Royal Afang Soup with Periwinkles</li>
               <li>Calabar White Soup (Afia Efere)</li>
@@ -878,7 +917,7 @@
 
           <!-- Col 4: Location Info -->
           <div>
-            <h4 class="footer-heading">Port Harcourt Kitchen</h4>
+            <h3 class="footer-heading">Port Harcourt Kitchen</h3>
             <ul class="footer-list footer-contact-list">
               <li class="footer-contact-item">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-brass" aria-hidden="true">
@@ -924,16 +963,16 @@
           </p>
 
           <div class="footer-legal-links">
-            <button type="button" class="footer-legal-btn" onclick="window.CalabarApp.openLegalModal('privacy')">Privacy Policy</button>
+            <button type="button" class="footer-legal-btn" data-legal="privacy">Privacy Policy</button>
             <span aria-hidden="true">·</span>
-            <button type="button" class="footer-legal-btn" onclick="window.CalabarApp.openLegalModal('terms')">Terms of Service</button>
+            <button type="button" class="footer-legal-btn" data-legal="terms">Terms of Service</button>
           </div>
         </div>
       </div>
     </footer>
 
     <!-- SLIDE-OVER CART DRAWER -->
-    <div id="drawer-overlay" class="drawer-overlay" role="dialog" aria-modal="true" aria-label="Shopping cart" onclick="if (event.target === this) window.CalabarApp.closeCart();">
+    <div id="drawer-overlay" class="drawer-overlay" role="dialog" aria-modal="true" aria-label="Shopping cart">
       <div class="drawer-container">
         <div class="drawer-header">
           <h2 class="drawer-title">
@@ -942,7 +981,7 @@
             </svg>
             <span>Your Cart</span>
           </h2>
-          <button type="button" onclick="window.CalabarApp.closeCart()" class="drawer-close-btn" aria-label="Close cart">
+          <button type="button" data-action="close-cart" class="drawer-close-btn" aria-label="Close cart">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -960,9 +999,9 @@
     </div>
 
     <!-- DISH DETAILS MODAL -->
-    <div id="dish-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Dish details" onclick="if (event.target === this) window.CalabarApp.closeDishModal();">
+    <div id="dish-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Dish details">
       <div class="modal-card">
-        <button type="button" class="modal-close-btn" onclick="window.CalabarApp.closeDishModal()" aria-label="Close dialog">
+        <button type="button" class="modal-close-btn" data-action="close-dish-modal" aria-label="Close dialog">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
           </svg>
@@ -974,11 +1013,11 @@
     </div>
 
     <!-- LEGAL MODAL (PRIVACY & TERMS) -->
-    <div id="legal-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" onclick="if (event.target === this) window.CalabarApp.closeLegalModal();">
+    <div id="legal-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
       <div class="modal-card legal-modal-card">
         <div class="legal-modal-header">
           <h3 id="legal-modal-title" class="legal-modal-heading">Legal Information</h3>
-          <button type="button" onclick="window.CalabarApp.closeLegalModal()" class="legal-close-icon-btn" aria-label="Close">
+          <button type="button" data-action="close-legal-modal" class="legal-close-icon-btn" aria-label="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
             </svg>
@@ -988,7 +1027,7 @@
           <!-- Dynamically populated by js/script.js -->
         </div>
         <div class="legal-modal-footer">
-          <button type="button" onclick="window.CalabarApp.closeLegalModal()" class="legal-understand-btn">
+          <button type="button" data-action="close-legal-modal" class="legal-understand-btn">
             I Understand
           </button>
         </div>
@@ -996,15 +1035,18 @@
     </div>
 
     <!-- IMAGE LIGHTBOX FULL VIEW MODAL -->
-    <div id="image-lightbox-overlay" class="image-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Enlarged food photo view" onclick="window.CalabarApp.closeImageLightbox(event)">
-      <div class="lightbox-dialog" onclick="event.stopPropagation()">
-        <button type="button" class="lightbox-close-btn" onclick="window.CalabarApp.closeImageLightbox()" aria-label="Close image preview">
+    <div id="image-lightbox-overlay" class="image-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Enlarged food photo view">
+      <div class="lightbox-dialog">
+        <button type="button" class="lightbox-close-btn" data-action="close-lightbox" aria-label="Close image preview">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
         <div class="lightbox-image-wrapper">
-          <img id="lightbox-img" src="" alt="Enlarged dish view" class="lightbox-img" />
+          <picture id="lightbox-picture">
+            <source id="lightbox-source-webp" srcset="" type="image/webp" />
+            <img id="lightbox-img" src="" alt="Enlarged dish view" class="lightbox-img" />
+          </picture>
         </div>
         <div class="lightbox-caption">
           <div class="lightbox-caption-top">
@@ -1017,7 +1059,7 @@
     </div>
 
     <!-- BACK TO TOP ARROW BUTTON -->
-    <button type="button" id="back-to-top-btn" class="back-to-top-btn" onclick="window.CalabarApp.scrollToTop()" aria-label="Back to top">
+    <button type="button" id="back-to-top-btn" class="back-to-top-btn" data-action="scroll-top" aria-label="Back to top">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
         <polyline points="18 15 12 9 6 15" />
       </svg>

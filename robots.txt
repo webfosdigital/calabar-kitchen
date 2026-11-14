@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://webfosdigital.github.io/calabar-kitchen/sitemap.xml
